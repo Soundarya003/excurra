@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:excurra/screens/login.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:excurra/screens/hotel_screen.dart';
+import 'package:excurra/screens/preference.dart';
 
 void main() async{
   // this is to ensure our app stays in landscape mode even if it's in auto rotation
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
         BookingScreen.id: (context) => BookingScreen(),
         LoginScreen.id: (context) => LoginScreen(),
         HotelScreen.id : (context) => HotelScreen(),
+        ChoiceScreen.id: (context) => ChoiceScreen(),
       },
     );
   }
