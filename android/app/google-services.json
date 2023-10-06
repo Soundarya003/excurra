@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "894035905451",
+    "project_id": "excurra-56d5e",
+    "storage_bucket": "excurra-56d5e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:894035905451:android:498a845c8a199ff4a6e0ee",
+        "android_client_info": {
+          "package_name": "com.Soundarya.excurra"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUCGmnJybeW-DW2agejcNuVROfFiJf2VM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
