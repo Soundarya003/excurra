@@ -14,6 +14,14 @@ const kDateTextStyle = TextStyle(
     fontSize: 16.0,
     fontFamily: 'Raleway-Light'
 );
+
+const kPreferenceTextStyle = TextStyle(
+    color: Colors.black,
+    fontWeight: FontWeight.w500,
+    fontSize: 20.0,
+    fontFamily: 'Poppins-light'
+);
+
 const kHeading = TextStyle(
     fontFamily: 'Poppins-Light',
     fontWeight: FontWeight.w700,
@@ -58,3 +66,4 @@ BoxDecoration arrowDecoration(){
       color: Color(0xffEDECFD)
   );
 }
+

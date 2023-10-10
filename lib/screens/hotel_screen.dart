@@ -30,21 +30,30 @@ class _HotelScreenState extends State<HotelScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    TextButton(onPressed: () {Navigator.pop(context);}, child: Icon(Icons.arrow_back, color:  Colors.black,size: 30.0,)),
-                    TextButton(onPressed: (){}, child: Icon(Icons.menu,color: Colors.black,size: 30.0,))
+                    TextButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: Icon(
+                          Icons.arrow_back,
+                          color: Colors.black,
+                          size: 30.0,
+                        )),
                   ],
                 ),
-                SizedBox(height: 15.0,),
+                SizedBox(
+                  height: 15.0,
+                ),
                 DefaultTabController(
-                  length: 3,
+                  length: 4,
                   child: Container(
                     padding: EdgeInsets.all(5.0),
                     decoration: BoxDecoration(
                         color: Color(0xbfff5f5f7),
-                        borderRadius: BorderRadius.circular(25.0)
-                    ),
+                        borderRadius: BorderRadius.circular(25.0)),
                     child: TabBar(
                       unselectedLabelColor: Colors.black,
+                      isScrollable: true,
                       labelColor: Color(0xbff7578de),
                       labelStyle: kBookingTravelText,
                       indicatorSize: TabBarIndicatorSize.tab,
@@ -59,22 +68,43 @@ class _HotelScreenState extends State<HotelScreen> {
                             child: Text("Hotels"),
                           ),
                         ),
-                        Tab(child: Align(
-                          alignment: Alignment.center,
-                          child: Text('AirBnb'),
-                        ),),
-                        Tab(child: Align(
-                          alignment: Alignment.center,
-                          child: Text('Resorts',),
-                        ),),
+                        Tab(
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: Text('AirBnb'),
+                          ),
+                        ),
+                        Tab(
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              'Resorts',
+                            ),
+                          ),
+                        ),
+                        Tab(
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              'Hostel',
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
                 ),
-                SizedBox(height: 550.0,),
-                Align(child: CreateButton(buttonName: 'Next', onPressed: (){
-                  Navigator.pushNamed(context, ChoiceScreen.id);
-                }), alignment: Alignment.center,),
+                SizedBox(
+                  height: 550.0,
+                ),
+                Align(
+                  child: CreateButton(
+                      buttonName: 'Next',
+                      onPressed: () {
+                        Navigator.pushNamed(context, ChoiceScreen.id);
+                      }),
+                  alignment: Alignment.center,
+                ),
               ],
             ),
           ),

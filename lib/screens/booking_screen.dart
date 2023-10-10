@@ -38,13 +38,6 @@ class _BookingScreenState extends State<BookingScreen> {
                           color: Colors.black,
                           size: 30.0,
                         )),
-                    TextButton(
-                        onPressed: () {},
-                        child: Icon(
-                          Icons.menu,
-                          color: Colors.black,
-                          size: 30.0,
-                        ))
                   ],
                 ),
                 SizedBox(
