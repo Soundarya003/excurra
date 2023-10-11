@@ -48,7 +48,7 @@ class _CreateDropDownState extends State<CreateDropDown> {
           dropDownItemCount: 8,
           searchShowCursor: false,
           enableSearch: true,
-          searchKeyboardType: TextInputType.number,
+          searchKeyboardType: TextInputType.text,
           dropDownList: const [
             DropDownValueModel(name: 'name1', value: "value1"),
             DropDownValueModel(
