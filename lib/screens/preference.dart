@@ -21,7 +21,17 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
-        body: SingleChildScrollView(
+        body: Stack(
+            children: [
+              Container(
+              decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("images/bg3.jpg"),
+              fit: BoxFit.cover,
+            ),
+          ),
+          ),
+          SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.all(15.0),
             child: Container(
@@ -359,19 +369,19 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
                         ],
                       ),
                     ),
-                    SizedBox(height:80 ,),
+                    SizedBox(height:40 ,),
                     Align(
                       child: CreateButton(buttonName: 'Next', onPressed: () {}),
                       alignment: Alignment.center,
                     ),
-                    SizedBox(height: 80,)
                   ],
                 ),
               ),
             ),
           ),
         ),
-      ),
+            ]
+        ),)
     );
   }
 }

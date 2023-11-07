@@ -45,7 +45,7 @@ class _HotelScreenState extends State<HotelScreen> {
                   height: 15.0,
                 ),
                 DefaultTabController(
-                  length: 4,
+                  length: 3,
                   child: Container(
                     padding: EdgeInsets.all(5.0),
                     decoration: BoxDecoration(
@@ -53,7 +53,6 @@ class _HotelScreenState extends State<HotelScreen> {
                         borderRadius: BorderRadius.circular(25.0)),
                     child: TabBar(
                       unselectedLabelColor: Colors.black,
-                      isScrollable: true,
                       labelColor: Color(0xbff7578de),
                       labelStyle: kBookingTravelText,
                       indicatorSize: TabBarIndicatorSize.tab,
@@ -71,22 +70,14 @@ class _HotelScreenState extends State<HotelScreen> {
                         Tab(
                           child: Align(
                             alignment: Alignment.center,
-                            child: Text('AirBnb'),
+                            child: Text('Resorts'),
                           ),
                         ),
                         Tab(
                           child: Align(
                             alignment: Alignment.center,
                             child: Text(
-                              'Resorts',
-                            ),
-                          ),
-                        ),
-                        Tab(
-                          child: Align(
-                            alignment: Alignment.center,
-                            child: Text(
-                              'Hostel',
+                              'Hostels',
                             ),
                           ),
                         ),
@@ -110,6 +101,6 @@ class _HotelScreenState extends State<HotelScreen> {
           ),
         ),
       ),
-    );
+    );;
   }
 }

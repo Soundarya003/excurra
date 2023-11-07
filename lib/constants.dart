@@ -42,12 +42,25 @@ const kBookingTravelText = TextStyle(
      fontSize: 18.0,
 );
 
-BoxDecoration mainBoxDecoration(){
+BoxDecoration mainBoxDecoration() {
   return BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(24.0)
+    color: Colors.white,
+    borderRadius: BorderRadius.circular(24.0),
+    boxShadow: [
+      BoxShadow(
+        color: Colors.grey, // Shadow color
+        offset: Offset(-5, -5), // Offset for the top-left shadow
+        blurRadius: 5, // Blur radius
+      ),
+      BoxShadow(
+        color: Colors.grey, // Shadow color
+        offset: Offset(5, 5), // Offset for the bottom-right shadow
+        blurRadius: 5, // Blur radius
+      ),
+    ],
   );
 }
+
 
 BoxDecoration countryFieldDecoration(){
   return BoxDecoration(
@@ -67,3 +80,16 @@ BoxDecoration arrowDecoration(){
   );
 }
 
+const kSideHeading = TextStyle(
+    fontFamily: 'Poppins-Light',
+    fontWeight: FontWeight.w700,
+    fontSize: 18.0,
+    color: Colors.black
+);
+
+const kSideEmailHeading = TextStyle(
+    fontFamily: 'Poppins-Light',
+    fontWeight: FontWeight.w700,
+    fontSize: 14.0,
+    color: Colors.black
+);
