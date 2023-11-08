@@ -1,19 +1,23 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
 // ignore_for_file: prefer_const_constructors
 import 'package:excurra/Widgets/create_button.dart';
 import 'package:excurra/constants.dart';
 import 'package:excurra/screens/hotel_screen.dart';
 
-class BookingScreen extends StatefulWidget {
-  static const String id = 'booking_screen';
+class FlightScreen extends StatefulWidget {
+  static const String id = 'flight_screen';
 
   @override
-  State<BookingScreen> createState() => _BookingScreenState();
+  State<FlightScreen> createState() => _FlightScreenState();
 }
 
-class _BookingScreenState extends State<BookingScreen> {
+class _FlightScreenState extends State<FlightScreen> {
+
   @override
   Widget build(BuildContext context) {
+    final Map<String, String> accumulatedData = ModalRoute.of(context)?.settings.arguments as Map<String,String>;
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.grey,
@@ -85,13 +89,13 @@ class _BookingScreenState extends State<BookingScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: 550.0,
+                  height: 200.0,
                 ),
                 Align(
                   child: CreateButton(
                       buttonName: 'Next',
                       onPressed: () {
-                        Navigator.pushNamed(context, HotelScreen.id);
+                        Navigator.pushNamed(context, HotelScreen.id, arguments: accumulatedData);
                       }),
                   alignment: Alignment.center,
                 ),

@@ -2,34 +2,72 @@ import 'package:flutter/material.dart';
 // ignore_for_file: prefer_const_constructors
 import 'package:excurra/Widgets/create_button.dart';
 import 'package:excurra/constants.dart';
-import 'package:excurra/screens/preference.dart';
+import 'package:excurra/screens/itenary_screen.dart';
 
 class ChoiceScreen extends StatefulWidget {
   @override
   State<ChoiceScreen> createState() => _ChoiceScreenState();
   static const String id = 'preference_screen';
+
+
 }
 
-class _ChoiceScreenState extends State<ChoiceScreen> {
+class _ChoiceScreenState extends State<ChoiceScreen> with TickerProviderStateMixin{
 
   List<String> interestList = []; // List to store entered
   List<String> mustList = [];
+  List travelPreference = ['Solo', 'Couple','Friends','Family'];
+  List budgetPreference = ['Normal','Economy','Luxury'];
+  List foodPreference = ['Vegetarian', 'Non-Vegetarian'];
   TextEditingController interestController = TextEditingController();
   TextEditingController mustController = TextEditingController();
+  late TabController travel_controller;
+  late TabController budget_controller;
+  late TabController foodType_controller;
+  int x=0, y=0, z=0;
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    travel_controller = TabController(length: 4, vsync: this);
+    budget_controller = TabController(length: 3, vsync: this);
+    foodType_controller = TabController(length: 2, vsync: this);
+
+    travel_controller.addListener(() {
+      setState(() {
+        x = travel_controller.index;
+      });
+      print("Selected Index: " + travel_controller.index.toString());
+    });
+    budget_controller.addListener(() {
+      setState(() {
+        y = budget_controller.index;
+      });
+      print("Selected Index: " + budget_controller.index.toString());
+    });
+
+    foodType_controller.addListener(() {
+      setState(() {
+        z = foodType_controller.index;
+      });
+      print("Selected Index: " + foodType_controller.index.toString());
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+
+    Map<String, String> accumulatedData = ModalRoute.of(context)?.settings.arguments as Map<String,String>;
+    Map<String, dynamic> finalData = new Map();
+    if(accumulatedData!=null){
+      finalData.addAll(accumulatedData);
+    }
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
         body: Stack(
             children: [
               Container(
-              decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("images/bg3.jpg"),
-              fit: BoxFit.cover,
-            ),
-          ),
           ),
           SingleChildScrollView(
           child: Padding(
@@ -67,6 +105,7 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
                             color: Color(0xbfff5f5f7),
                             borderRadius: BorderRadius.circular(25.0)),
                         child: TabBar(
+                          controller: travel_controller,
                           unselectedLabelColor: Colors.black,
                           isScrollable: true,
                           labelColor: Color(0xbff7578de),
@@ -120,6 +159,7 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
                             color: Color(0xbfff5f5f7),
                             borderRadius: BorderRadius.circular(25.0)),
                         child: TabBar(
+                          controller: budget_controller,
                           unselectedLabelColor: Colors.black,
                           isScrollable: true,
                           labelColor: Color(0xbff7578de),
@@ -165,6 +205,7 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
                             color: Color(0xbfff5f5f7),
                             borderRadius: BorderRadius.circular(25.0)),
                         child: TabBar(
+                          controller: foodType_controller,
                           unselectedLabelColor: Colors.black,
                           isScrollable: true,
                           labelColor: Color(0xbff7578de),
@@ -255,28 +296,34 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
                        ),
                        const SizedBox(height: 10),
                        Container(
+                         width: 330.0,
+                         height: 70,
                          decoration: BoxDecoration(
                            borderRadius: BorderRadius.circular(20.0),
-                           border: Border.all(width: 2.0,color: Colors.grey)
+                           border: Border.all(width: 2.0, color: Colors.grey),
                          ),
                          child: Padding(
                            padding: EdgeInsets.all(10.0),
-                           child: Wrap(
-                             alignment: WrapAlignment.center,
-                             spacing: 5.0,
-                             children: interestList.map((String text) {
-                               return InputChip(
-                                 label: Text(text),
-                                 onDeleted: () {
-                                   setState(() {
-                                     interestList.remove(text);
-                                   });
-                                 },
-                               );
-                             }).toList(),
+                           child: SingleChildScrollView(
+                             scrollDirection: Axis.horizontal, // Scroll horizontally
+                             child: Wrap(
+                               alignment: WrapAlignment.center,
+                               spacing: 5.0,
+                               children: interestList.map((String text) {
+                                 return InputChip(
+                                   label: Text(text),
+                                   onDeleted: () {
+                                     setState(() {
+                                       interestList.remove(text);
+                                     });
+                                   },
+                                 );
+                               }).toList(),
+                             ),
                            ),
                          ),
-                       ),
+                       )
+
                      ],
                    ),
                  ),
@@ -344,34 +391,49 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
                           ),
                           const SizedBox(height: 10),
                           Container(
+                            width: 330.0,
+                            height: 70,
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20.0),
-                                border: Border.all(width: 2.0,color: Colors.grey)
+                              borderRadius: BorderRadius.circular(20.0),
+                              border: Border.all(width: 2.0, color: Colors.grey),
                             ),
                             child: Padding(
                               padding: EdgeInsets.all(10.0),
-                              child: Wrap(
-                                alignment: WrapAlignment.center,
-                                spacing: 5.0,
-                                children: mustList.map((String text) {
-                                  return InputChip(
-                                    label: Text(text),
-                                    onDeleted: () {
-                                      setState(() {
-                                        mustList.remove(text);
-                                      });
-                                    },
-                                  );
-                                }).toList(),
+                              child: SingleChildScrollView(
+                                scrollDirection: Axis.horizontal, // Scroll horizontally
+                                child: Wrap(
+                                  alignment: WrapAlignment.center,
+                                  spacing: 5.0,
+                                  children: mustList.map((String text) {
+                                    return InputChip(
+                                      label: Text(text),
+                                      onDeleted: () {
+                                        setState(() {
+                                          mustList.remove(text);
+                                        });
+                                      },
+                                    );
+                                  }).toList(),
+                                ),
                               ),
                             ),
-                          ),
+                          )
+                          ,
                         ],
                       ),
                     ),
                     SizedBox(height:40 ,),
                     Align(
-                      child: CreateButton(buttonName: 'Next', onPressed: () {}),
+                      child: CreateButton(buttonName: 'Next', onPressed: () {
+                        finalData.addAll({
+                          'travelPreference': travelPreference[x],
+                          'budgetPreference': budgetPreference[y],
+                          'foodPreference': foodPreference[z],
+                          'interestList': interestList,
+                          'mustList': mustList
+                        });
+                        Navigator.pushNamed(context, ItineraryScreen.id, arguments: finalData);
+                      }),
                       alignment: Alignment.center,
                     ),
                   ],

@@ -15,6 +15,7 @@ class HotelScreen extends StatefulWidget {
 class _HotelScreenState extends State<HotelScreen> {
   @override
   Widget build(BuildContext context) {
+    final Map<String, String> accumulatedData = ModalRoute.of(context)?.settings.arguments as Map<String,String>;
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.grey,
@@ -85,14 +86,15 @@ class _HotelScreenState extends State<HotelScreen> {
                     ),
                   ),
                 ),
+                Text(accumulatedData['to_date']!),
                 SizedBox(
-                  height: 550.0,
+                  height: 250.0,
                 ),
                 Align(
                   child: CreateButton(
                       buttonName: 'Next',
                       onPressed: () {
-                        Navigator.pushNamed(context, ChoiceScreen.id);
+                        Navigator.pushNamed(context, ChoiceScreen.id, arguments: accumulatedData);
                       }),
                   alignment: Alignment.center,
                 ),
