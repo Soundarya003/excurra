@@ -93,3 +93,17 @@ const kSideEmailHeading = TextStyle(
     fontSize: 14.0,
     color: Colors.black
 );
+
+const kTraveller = TextStyle(
+    fontFamily: 'Poppins-Light',
+    fontWeight: FontWeight.w400,
+    fontSize: 14.0,
+    color: Colors.black
+);
+
+const purpleGradient = LinearGradient (
+  begin:  Alignment(-1.224, -1),
+  end:  Alignment(1, 0.667),
+  colors:  <Color>[Color(0xfffb4a4a), Color(0xff2026cc)],
+  stops:  <double>[0, 1],
+);

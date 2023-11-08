@@ -25,6 +25,18 @@ class SideMenu extends StatelessWidget {
         ListTile(
           title: Row(
             children: [
+              GradientIcon(icon: Icons.favorite_outlined, size: 30),
+              SizedBox(width: 13.0,),
+              Text('Wishlist', style: kSideHeading,)
+            ],
+          ),
+          onTap: () {
+            // Handle item 2 click
+          },
+        ),
+        ListTile(
+          title: Row(
+            children: [
               GradientIcon(icon: Icons.history, size: 30),
               SizedBox(width: 13.0,),
               Text('Travel History', style: kSideHeading,)
@@ -46,6 +58,7 @@ class SideMenu extends StatelessWidget {
             // Handle item 2 click
           },
         ),
+
       ],
     );
   }
@@ -63,13 +76,7 @@ class GradientIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Gradient gradient = LinearGradient(
-      begin: Alignment(-1.224, -1),
-      end: Alignment(1, 0.667),
-      colors: <Color>[Color(0xfffb4a4a), Color(0xff2026cc)],
-      stops: <double>[0, 1],
-    );
-
+    final Gradient gradient = purpleGradient;
     return ShaderMask(
       shaderCallback: (Rect bounds) {
         return gradient.createShader(bounds);

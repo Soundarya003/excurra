@@ -17,12 +17,7 @@ class CreateButton extends StatelessWidget {
         width: 290,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15.0),
-          gradient:  LinearGradient (
-            begin:  Alignment(-1.224, -1),
-            end:  Alignment(1, 0.667),
-            colors:  <Color>[Color(0xfffb4a4a), Color(0xff2026cc)],
-            stops:  <double>[0, 1],
-          ),
+          gradient:  purpleGradient,
         ),
         child: ElevatedButton(
           onPressed: onPressed,
