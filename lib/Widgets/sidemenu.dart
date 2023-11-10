@@ -64,28 +64,3 @@ class SideMenu extends StatelessWidget {
   }
 }
 
-
-class GradientIcon extends StatelessWidget {
-  final IconData icon;
-  final double size;
-
-  GradientIcon({
-    required this.icon,
-    required this.size,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final Gradient gradient = purpleGradient;
-    return ShaderMask(
-      shaderCallback: (Rect bounds) {
-        return gradient.createShader(bounds);
-      },
-      child: Icon(
-        icon,
-        size: size,
-        color: Colors.white, // This color will be overridden by the gradient
-      ),
-    );
-  }
-}

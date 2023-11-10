@@ -42,6 +42,12 @@ const kBookingTravelText = TextStyle(
      fontSize: 18.0,
 );
 
+const kHeading1 = TextStyle(color: Colors.black, fontSize: 16.0, fontWeight: FontWeight.w800);
+
+const kHeading2 = TextStyle(color: Colors.black, fontSize: 12.0);
+
+const kSmallHeading = TextStyle(fontSize: 12.0);
+
 BoxDecoration mainBoxDecoration() {
   return BoxDecoration(
     color: Colors.white,
@@ -107,3 +113,28 @@ const purpleGradient = LinearGradient (
   colors:  <Color>[Color(0xfffb4a4a), Color(0xff2026cc)],
   stops:  <double>[0, 1],
 );
+
+class GradientIcon extends StatelessWidget {
+  final IconData icon;
+  final double size;
+
+  GradientIcon({
+    required this.icon,
+    required this.size,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final Gradient gradient = purpleGradient;
+    return ShaderMask(
+      shaderCallback: (Rect bounds) {
+        return gradient.createShader(bounds);
+      },
+      child: Icon(
+        icon,
+        size: size,
+        color: Colors.white, // This color will be overridden by the gradient
+      ),
+    );
+  }
+}

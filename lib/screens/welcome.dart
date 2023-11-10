@@ -1,13 +1,11 @@
 import 'dart:collection';
-
 import 'package:excurra/Widgets/country_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:excurra/Widgets/date.dart';
 import 'package:excurra/constants.dart';
-import 'package:excurra/screens/flight_screen.dart';
+import 'package:excurra/screens/travel_screen.dart';
 import 'package:excurra/Widgets/create_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_slider_drawer/flutter_slider_drawer.dart';
 import 'package:excurra/Widgets/sidemenu.dart';
 import 'package:excurra/Widgets/traveller_widget.dart';
 
@@ -32,7 +30,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   late String from_date = '${now.year}-${now.month.toString().padLeft(2, '0')}-${now.day}';
   late String to_date = '${last.year}-${last.month.toString().padLeft(2, '0')}-${last.day}';
   late var adults = 1;
-  late var children = 1;
+  late var children = 0;
   final user = FirebaseAuth.instance.currentUser;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -229,8 +227,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                           TravellerWidget(
                             add: () {
                               setState(() {
-                                if (adults > 1000) {
-                                  adults = 1000;
+                                if (adults > 30) {
+                                  adults = 30;
                                 } else {
                                   adults++;
                                 }
@@ -251,8 +249,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                           TravellerWidget(
                             add: () {
                               setState(() {
-                                if (children > 1000) {
-                                  children = 1000;
+                                if (children > 30) {
+                                  children = 30;
                                 } else {
                                   children++;
                                 }

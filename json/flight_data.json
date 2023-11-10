@@ -1,0 +1,212 @@
+[
+  {
+    "flightDetails": [
+      {
+        "deptAirportCode": "BBI",
+        "arrivalAirportCode": "FCO",
+        "departureAirportName": "Biju Patnaik Airport",
+        "arrivalAirportName": "Leonardo Da Vinci (Fiumicino) International Airport",
+        "deptTime": "2023-11-11T13:15:00.000+05:30",
+        "arrivalTime": "2023-11-12T08:15:00.000+01:00",
+        "duration": "23h 30m",
+        "airlineCodes": [
+          "AZ",
+          "UK"
+        ],
+        "airlineNames": [
+          "Alitalia",
+          "buzz"
+        ],
+        "stopoverAirportCodes": [
+          "DEL"
+        ],
+        "nonStop": "true",
+        "stopoverAirports": []
+      },
+      {
+        "deptAirportCode": "FCO",
+        "arrivalAirportCode": "BBI",
+        "departureAirportName": "Leonardo Da Vinci (Fiumicino) International Airport",
+        "arrivalAirportName": "Biju Patnaik Airport",
+        "deptTime": "2023-11-20T13:55:00.000+01:00",
+        "arrivalTime": "2023-11-21T09:05:00.000+05:30",
+        "duration": "14h 40m",
+        "airlineCodes": [
+          "AZ",
+          "UK"
+        ],
+        "airlineNames": [
+          "Alitalia",
+          "buzz"
+        ],
+        "stopoverAirportCodes": [
+          "DEL"
+        ],
+        "nonStop": "false",
+        "stopoverAirports": [
+          "Indira Gandhi International Airport"
+        ]
+      }
+    ],
+    "totalAmount": 291678
+  },
+  {
+    "flightDetails": [
+      {
+        "deptAirportCode": "BBI",
+        "arrivalAirportCode": "FCO",
+        "departureAirportName": "Biju Patnaik Airport",
+        "arrivalAirportName": "Leonardo Da Vinci (Fiumicino) International Airport",
+        "deptTime": "2023-11-11T20:30:00.000+05:30",
+        "arrivalTime": "2023-11-12T08:15:00.000+01:00",
+        "duration": "16h 15m",
+        "airlineCodes": [
+          "AZ",
+          "UK"
+        ],
+        "airlineNames": [
+          "Alitalia",
+          "buzz"
+        ],
+        "stopoverAirportCodes": [
+          "DEL"
+        ],
+        "nonStop": "false",
+        "stopoverAirports": [
+          "Indira Gandhi International Airport"
+        ]
+      },
+      {
+        "deptAirportCode": "FCO",
+        "arrivalAirportCode": "BBI",
+        "departureAirportName": "Leonardo Da Vinci (Fiumicino) International Airport",
+        "arrivalAirportName": "Biju Patnaik Airport",
+        "deptTime": "2023-11-20T13:55:00.000+01:00",
+        "arrivalTime": "2023-11-21T09:05:00.000+05:30",
+        "duration": "14h 40m",
+        "airlineCodes": [
+          "AZ",
+          "UK"
+        ],
+        "airlineNames": [
+          "Alitalia",
+          "buzz"
+        ],
+        "stopoverAirportCodes": [
+          "DEL"
+        ],
+        "nonStop": "false",
+        "stopoverAirports": [
+          "Indira Gandhi International Airport"
+        ]
+      }
+    ],
+    "totalAmount": 230000
+  },
+  {
+    "flightDetails": [
+      {
+        "deptAirportCode": "BBI",
+        "arrivalAirportCode": "FCO",
+        "departureAirportName": "Biju Patnaik Airport",
+        "arrivalAirportName": "Leonardo Da Vinci (Fiumicino) International Airport",
+        "deptTime": "2023-11-11T20:30:00.000+05:30",
+        "arrivalTime": "2023-11-12T08:15:00.000+01:00",
+        "duration": "16h 15m",
+        "airlineCodes": [
+          "AZ",
+          "UK"
+        ],
+        "airlineNames": [
+          "Alitalia",
+          "buzz"
+        ],
+        "stopoverAirportCodes": [
+          "DEL"
+        ],
+        "nonStop": "false",
+        "stopoverAirports": [
+          "Indira Gandhi International Airport"
+        ]
+      },
+      {
+        "deptAirportCode": "FCO",
+        "arrivalAirportCode": "BBI",
+        "departureAirportName": "Leonardo Da Vinci (Fiumicino) International Airport",
+        "arrivalAirportName": "Biju Patnaik Airport",
+        "deptTime": "2023-11-20T13:55:00.000+01:00",
+        "arrivalTime": "2023-11-21T12:40:00.000+05:30",
+        "duration": "18h 15m",
+        "airlineCodes": [
+          "AZ",
+          "UK"
+        ],
+        "airlineNames": [
+          "Alitalia",
+          "buzz"
+        ],
+        "stopoverAirportCodes": [
+          "DEL"
+        ],
+        "nonStop": "false",
+        "stopoverAirports": [
+          "Indira Gandhi International Airport"
+        ]
+      }
+    ],
+    "totalAmount": 291678
+  },
+  {
+    "flightDetails": [
+      {
+        "deptAirportCode": "BBI",
+        "arrivalAirportCode": "FCO",
+        "departureAirportName": "Biju Patnaik Airport",
+        "arrivalAirportName": "Leonardo Da Vinci (Fiumicino) International Airport",
+        "deptTime": "2023-11-11T13:15:00.000+05:30",
+        "arrivalTime": "2023-11-12T08:15:00.000+01:00",
+        "duration": "23h 30m",
+        "airlineCodes": [
+          "AZ",
+          "UK"
+        ],
+        "airlineNames": [
+          "Alitalia",
+          "buzz"
+        ],
+        "stopoverAirportCodes": [
+          "DEL"
+        ],
+        "nonStop": "false",
+        "stopoverAirports": [
+          "Indira Gandhi International Airport"
+        ]
+      },
+      {
+        "deptAirportCode": "FCO",
+        "arrivalAirportCode": "BBI",
+        "departureAirportName": "Leonardo Da Vinci (Fiumicino) International Airport",
+        "arrivalAirportName": "Biju Patnaik Airport",
+        "deptTime": "2023-11-20T13:55:00.000+01:00",
+        "arrivalTime": "2023-11-21T12:40:00.000+05:30",
+        "duration": "18h 15m",
+        "airlineCodes": [
+          "AZ",
+          "UK"
+        ],
+        "airlineNames": [
+          "Alitalia",
+          "buzz"
+        ],
+        "stopoverAirportCodes": [
+          "DEL"
+        ],
+        "nonStop": "false",
+        "stopoverAirports": [
+          "Indira Gandhi International Airport"
+        ]
+      }
+    ],
+    "totalAmount": 30000
+  }
+]

@@ -1,7 +1,7 @@
 import 'package:excurra/Authentication/google_sign_in.dart';
 import 'package:excurra/screens/welcome.dart';
 import 'package:flutter/material.dart';
-import 'package:excurra/screens/flight_screen.dart';
+import 'package:excurra/screens/travel_screen.dart';
 import 'package:flutter/services.dart';
 import 'package:excurra/screens/login.dart';
 import 'package:firebase_core/firebase_core.dart';

@@ -12,20 +12,8 @@ class CreateDropDown extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        decoration: countryFieldDecoration(),
-        padding: EdgeInsets.only(left: 20, top: 5),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              DropdownSearch<String>(
-                items: ["Male", "Female", "Other"],
-                selectedItem: dropdownValue,
-                onChanged: onChanged,
-              ),
-            ],
+
           ),
-        ),
-      ),
-    );
+        );
   }
 }
