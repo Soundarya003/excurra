@@ -1,0 +1,137 @@
+[
+  {
+    "train_details": [
+      {
+        "deptStationName": "Hyderabad Juncton",
+        "arrivalStationName": "Kolkata Central Railway Station",
+        "deptDate": "2023-11-11",
+        "deptTime": "05:54",
+        "arrivalDate": "2023-11-11",
+        "arrivalTime": "05:54",
+        "trainCode": 2074,
+        "trainName": "Hyderabad Express",
+        "duration": "5h 00m"
+      },
+      {
+        "deptStationName": "Kolkata Central Railway Station",
+        "arrivalStationName": "Hyderabad Juncton",
+        "deptDate": "2023-11-20",
+        "deptTime": "05:54",
+        "arrivalDate": "2023-11-20",
+        "arrivalTime": "05:54",
+        "trainCode": 6107,
+        "trainName": "Kolkata Express",
+        "duration": "5h 00m"
+      }
+    ],
+    "total_amount": 5961
+  },
+  {
+    "train_details": [
+      {
+        "deptStationName": "Hyderabad Juncton",
+        "arrivalStationName": "Kolkata Central Railway Station",
+        "deptDate": "2023-11-11",
+        "deptTime": "07:01",
+        "arrivalDate": "2023-11-12",
+        "arrivalTime": "16:01",
+        "trainCode": 3529,
+        "trainName": "Hyderabad Express",
+        "duration": "7h 00m"
+      },
+      {
+        "deptStationName": "Kolkata Central Railway Station",
+        "arrivalStationName": "Hyderabad Juncton",
+        "deptDate": "2023-11-20",
+        "deptTime": "07:01",
+        "arrivalDate": "2023-11-21",
+        "arrivalTime": "16:01",
+        "trainCode": 2352,
+        "trainName": "Kolkata Express",
+        "duration": "7h 00m"
+      }
+    ],
+    "total_amount": 5448
+  },
+  {
+    "train_details": [
+      {
+        "deptStationName": "Hyderabad Juncton",
+        "arrivalStationName": "Kolkata Central Railway Station",
+        "deptDate": "2023-11-11",
+        "deptTime": "11:35",
+        "arrivalDate": "2023-11-11",
+        "arrivalTime": "10:35",
+        "trainCode": 8579,
+        "trainName": "Hyderabad Express",
+        "duration": "11h 00m"
+      },
+      {
+        "deptStationName": "Kolkata Central Railway Station",
+        "arrivalStationName": "Hyderabad Juncton",
+        "deptDate": "2023-11-20",
+        "deptTime": "11:35",
+        "arrivalDate": "2023-11-20",
+        "arrivalTime": "10:35",
+        "trainCode": 6473,
+        "trainName": "Kolkata Express",
+        "duration": "11h 00m"
+      }
+    ],
+    "total_amount": 3990
+  },
+  {
+    "train_details": [
+      {
+        "deptStationName": "Hyderabad Juncton",
+        "arrivalStationName": "Kolkata Central Railway Station",
+        "deptDate": "2023-11-11",
+        "deptTime": "10:03",
+        "arrivalDate": "2023-11-11",
+        "arrivalTime": "10:03",
+        "trainCode": 9201,
+        "trainName": "Hyderabad Express",
+        "duration": "10h 00m"
+      },
+      {
+        "deptStationName": "Kolkata Central Railway Station",
+        "arrivalStationName": "Hyderabad Juncton",
+        "deptDate": "2023-11-20",
+        "deptTime": "10:03",
+        "arrivalDate": "2023-11-20",
+        "arrivalTime": "10:03",
+        "trainCode": 6941,
+        "trainName": "Kolkata Express",
+        "duration": "10h 00m"
+      }
+    ],
+    "total_amount": 5979
+  },
+  {
+    "train_details": [
+      {
+        "deptStationName": "Hyderabad Juncton",
+        "arrivalStationName": "Kolkata Central Railway Station",
+        "deptDate": "2023-11-11",
+        "deptTime": "12:37",
+        "arrivalDate": "2023-11-11",
+        "arrivalTime": "01:37",
+        "trainCode": 7037,
+        "trainName": "Hyderabad Express",
+        "duration": "12h 00m"
+      },
+      {
+        "deptStationName": "Kolkata Central Railway Station",
+        "arrivalStationName": "Hyderabad Juncton",
+        "deptDate": "2023-11-20",
+        "deptTime": "12:37",
+        "arrivalDate": "2023-11-20",
+        "arrivalTime": "01:37",
+        "trainCode": 3586,
+        "trainName": "Kolkata Express",
+        "duration": "12h 00m"
+      }
+    ],
+    "total_amount": 3573
+  }
+]

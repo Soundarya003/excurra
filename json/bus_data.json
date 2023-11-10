@@ -1,0 +1,137 @@
+[
+  {
+    "bus_details": [
+      {
+        "deptStationName": "Hyderabad Bus Stand",
+        "arrivalStationName": "Kolkata Bus Stand",
+        "deptDate": "2023-11-11",
+        "deptTime": "03:00",
+        "arrivalDate": "2023-11-12",
+        "arrivalTime": "23:00",
+        "busCode": 3942,
+        "busName": "Orange Tours & Travels",
+        "duration": "3h 00m"
+      },
+      {
+        "deptStationName": "Kolkata Bus Stand",
+        "arrivalStationName": "Hyderabad Bus Stand",
+        "deptDate": "2023-11-20",
+        "deptTime": "03:00",
+        "arrivalDate": "2023-11-21",
+        "arrivalTime": "23:00",
+        "busCode": 9179,
+        "busnName": "V R L Travels",
+        "duration": "3h 00m"
+      }
+    ],
+    "total_amount": 5565
+  },
+  {
+    "bus_details": [
+      {
+        "deptStationName": "Hyderabad Bus Stand",
+        "arrivalStationName": "Kolkata Bus Stand",
+        "deptDate": "2023-11-11",
+        "deptTime": "10:17",
+        "arrivalDate": "2023-11-11",
+        "arrivalTime": "12:17",
+        "busCode": 5608,
+        "busName": "CSM Travels",
+        "duration": "10h 00m"
+      },
+      {
+        "deptStationName": "Kolkata Bus Stand",
+        "arrivalStationName": "Hyderabad Bus Stand",
+        "deptDate": "2023-11-20",
+        "deptTime": "10:17",
+        "arrivalDate": "2023-11-20",
+        "arrivalTime": "12:17",
+        "busCode": 8119,
+        "busnName": "Bharat Benz",
+        "duration": "10h 00m"
+      }
+    ],
+    "total_amount": 3000
+  },
+  {
+    "bus_details": [
+      {
+        "deptStationName": "Hyderabad Bus Stand",
+        "arrivalStationName": "Kolkata Bus Stand",
+        "deptDate": "2023-11-11",
+        "deptTime": "14:02",
+        "arrivalDate": "2023-11-11",
+        "arrivalTime": "04:02",
+        "busCode": 5399,
+        "busName": "Volvo Buses",
+        "duration": "14h 00m"
+      },
+      {
+        "deptStationName": "Kolkata Bus Stand",
+        "arrivalStationName": "Hyderabad Bus Stand",
+        "deptDate": "2023-11-20",
+        "deptTime": "14:02",
+        "arrivalDate": "2023-11-20",
+        "arrivalTime": "04:02",
+        "busCode": 1746,
+        "busnName": "CSM Travels",
+        "duration": "14h 00m"
+      }
+    ],
+    "total_amount": 2781
+  },
+  {
+    "bus_details": [
+      {
+        "deptStationName": "Hyderabad Bus Stand",
+        "arrivalStationName": "Kolkata Bus Stand",
+        "deptDate": "2023-11-11",
+        "deptTime": "10:08",
+        "arrivalDate": "2023-11-11",
+        "arrivalTime": "12:08",
+        "busCode": 8987,
+        "busName": "V R L Travels",
+        "duration": "10h 00m"
+      },
+      {
+        "deptStationName": "Kolkata Bus Stand",
+        "arrivalStationName": "Hyderabad Bus Stand",
+        "deptDate": "2023-11-20",
+        "deptTime": "10:08",
+        "arrivalDate": "2023-11-20",
+        "arrivalTime": "12:08",
+        "busCode": 7982,
+        "busnName": "CSM Travels",
+        "duration": "10h 00m"
+      }
+    ],
+    "total_amount": 5883
+  },
+  {
+    "bus_details": [
+      {
+        "deptStationName": "Hyderabad Bus Stand",
+        "arrivalStationName": "Kolkata Bus Stand",
+        "deptDate": "2023-11-11",
+        "deptTime": "05:11",
+        "arrivalDate": "2023-11-11",
+        "arrivalTime": "16:11",
+        "busCode": 5770,
+        "busName": "Jabbar Travels",
+        "duration": "5h 00m"
+      },
+      {
+        "deptStationName": "Kolkata Bus Stand",
+        "arrivalStationName": "Hyderabad Bus Stand",
+        "deptDate": "2023-11-20",
+        "deptTime": "05:11",
+        "arrivalDate": "2023-11-20",
+        "arrivalTime": "16:11",
+        "busCode": 3039,
+        "busnName": "S R S Travels",
+        "duration": "5h 00m"
+      }
+    ],
+    "total_amount": 3969
+  }
+]

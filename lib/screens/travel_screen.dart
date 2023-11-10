@@ -7,6 +7,8 @@ import 'package:excurra/constants.dart';
 import 'package:excurra/screens/hotel_screen.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:excurra/travel_list/flight_working.dart';
+import 'package:excurra/travel_list/bus_working.dart';
+import 'package:excurra/travel_list/train_working.dart';
 
 class FlightScreen extends StatefulWidget {
   static const String id = 'flight_screen';
@@ -87,8 +89,8 @@ class _FlightScreenState extends State<FlightScreen> with TickerProviderStateMix
         ),
         body: TabBarView(
           children: [
-           FlightWorking(accumulatedData: accumulatedData,), Text(' '),
-            Text(' ')
+           FlightWorking(accumulatedData: accumulatedData,), TrainWorking(),
+            BusWorking()
           ],
         ),
       ),
