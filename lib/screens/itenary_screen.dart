@@ -1,10 +1,12 @@
 import 'dart:convert';
 
+import 'package:excurra/Cards/resort_card.dart';
 import 'package:flutter/material.dart';
 // ignore_for_file: prefer_const_constructors
 import 'package:excurra/constants.dart';
 import 'package:excurra/Cards/flight_card.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:excurra/Cards/hostel_card.dart';
 
 class ItineraryScreen extends StatefulWidget {
   @override
@@ -119,6 +121,7 @@ class _ItineraryScreenState extends State<ItineraryScreen> {
                           },
                         ),
                       ),
+                      ResortCard()
                     ],
                   ),
                 ),

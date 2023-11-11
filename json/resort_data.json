@@ -1,0 +1,87 @@
+[
+  {
+    "resortName": "Sandals Resorts",
+    "resortLocation": "Central City, Bhubaneswar",
+    "perks": [
+      "Free Wifi",
+      "Swimming Pool",
+      "Spa",
+      "Beach",
+      "Children Parks"
+    ],
+    "meals": [
+      "Breakfast",
+      "Dinner"
+    ],
+    "rating": 5,
+    "totalAmount": 155844
+  },
+  {
+    "resortName": "Meliá Hotels & Resorts",
+    "resortLocation": "Central City, Bhubaneswar",
+    "perks": [
+      "Parking",
+      "Free Wifi",
+      "Laundry",
+      "Spa",
+      "Beach",
+      "Game Room"
+    ],
+    "meals": [
+      "Breakfast"
+    ],
+    "rating": 5,
+    "totalAmount": 122832
+  },
+  {
+    "resortName": "Meliá Hotels & Resorts",
+    "resortLocation": "Central City, Bhubaneswar",
+    "perks": [
+      "Gym",
+      "Free Wifi",
+      "Beach",
+      "Spa",
+      "Laundry"
+    ],
+    "meals": [
+      "Breakfast",
+      "Dinner"
+    ],
+    "rating": 5,
+    "totalAmount": 105588
+  },
+  {
+    "resortName": "Sandals Resorts",
+    "resortLocation": "Central City, Bhubaneswar",
+    "perks": [
+      "Gym",
+      "Beach",
+      "Children Parks",
+      "Spa",
+      "Laundry"
+    ],
+    "meals": [
+      "Breakfast",
+      "Lunch",
+      "Dinner"
+    ],
+    "rating": 2,
+    "totalAmount": 105372
+  },
+  {
+    "resortName": "Meliá Hotels & Resorts",
+    "resortLocation": "Central City, Bhubaneswar",
+    "perks": [
+      "Free WiFi",
+      "Beach",
+      "Doctor on Call",
+      "Game Room",
+      "Spa"
+    ],
+    "meals": [
+      "Breakfast"
+    ],
+    "rating": 5,
+    "totalAmount": 80316
+  }
+]

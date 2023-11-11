@@ -12,10 +12,24 @@ class HotelScreen extends StatefulWidget {
   State<HotelScreen> createState() => _HotelScreenState();
 }
 
-class _HotelScreenState extends State<HotelScreen> {
+class _HotelScreenState extends State<HotelScreen> with TickerProviderStateMixin{
   @override
   Widget build(BuildContext context) {
     final Map<String, String> accumulatedData = ModalRoute.of(context)?.settings.arguments as Map<String,String>;
+    late TabController hotels;
+    int x = 0;
+    void initState() {
+      // TODO: implement initState
+      super.initState();
+      hotels = TabController(length: 3, vsync: this);
+
+      hotels.addListener(() {
+        setState(() {
+          x = hotels.index;
+        });
+        print("Selected Index: " + hotels.index.toString());
+      });
+    }
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.grey,

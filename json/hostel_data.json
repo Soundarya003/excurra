@@ -1,0 +1,53 @@
+[
+  {
+    "hostelName": "Nomadic Nest Hostel",
+    "hostelLocation": "Central City, Bhubaneswar",
+    "meals": [
+      "Breakfast",
+      "Lunch",
+      "Dinner"
+    ],
+    "rating": 2,
+    "totalAmount": 39096
+  },
+  {
+    "hostelName": "Nomadic Nest Hostel",
+    "hostelLocation": "Central City, Bhubaneswar",
+    "meals": [
+      "Breakfast"
+    ],
+    "rating": 3,
+    "totalAmount": 46152
+  },
+  {
+    "hostelName": "Backpacker's Haven Hostel",
+    "hostelLocation": "Central City, Bhubaneswar",
+    "meals": [
+      "Breakfast"
+    ],
+    "rating": 3,
+    "totalAmount": 28260
+  },
+  {
+    "hostelName": "Basecamp Hostel",
+    "hostelLocation": "Central City, Bhubaneswar",
+    "meals": [
+      "Breakfast",
+      "Lunch",
+      "Dinner"
+    ],
+    "rating": 4,
+    "totalAmount": 52308
+  },
+  {
+    "hostelName": "Nomadic Nest Hostel",
+    "hostelLocation": "Central City, Bhubaneswar",
+    "meals": [
+      "Breakfast",
+      "Lunch",
+      "Dinner"
+    ],
+    "rating": 3,
+    "totalAmount": 50256
+  }
+]

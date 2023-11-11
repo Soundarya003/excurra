@@ -18,20 +18,7 @@ class FlightScreen extends StatefulWidget {
 }
 
 class _FlightScreenState extends State<FlightScreen> with TickerProviderStateMixin{
-  late TabController flight;
-  int x = 0;
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    flight = TabController(length: 3, vsync: this);
 
-    flight.addListener(() {
-      setState(() {
-        x = flight.index;
-      });
-      print("Selected Index: " + flight.index.toString());
-    });
-  }
   
 
   @override
