@@ -1,0 +1,69 @@
+[
+  {
+    "hotelName": "Crowne Plaza",
+    "hotelLocation": "Central City, Bhubaneswar",
+    "perks": [
+      "Parking",
+      "Free Wifi"
+    ],
+    "meals": [
+      "Breakfast",
+      "Dinner"
+    ],
+    "rating": 2,
+    "totalAmount": 56196
+  },
+  {
+    "hotelName": "Novotel",
+    "hotelLocation": "Central City, Bhubaneswar",
+    "perks": [
+      "Gym",
+      "Free Wifi"
+    ],
+    "meals": [
+      "Breakfast"
+    ],
+    "rating": 2,
+    "totalAmount": 71172
+  },
+  {
+    "hotelName": "Crowne Plaza",
+    "hotelLocation": "Central City, Bhubaneswar",
+    "perks": [
+      "Gym",
+      "Free Wifi"
+    ],
+    "meals": [
+      "Breakfast",
+      "Dinner"
+    ],
+    "rating": 4,
+    "totalAmount": 56772
+  },
+  {
+    "hotelName": "Novotel",
+    "hotelLocation": "Central City, Bhubaneswar",
+    "perks": [
+      "Gym",
+      "Swimming Pool",
+      "Free WiFi"
+    ],
+    "meals": [
+      "Breakfast"
+    ],
+    "rating": 2,
+    "totalAmount": 74052
+  },
+  {
+    "hotelName": "Hyatt Hotels Corporation",
+    "hotelLocation": "Central City, Bhubaneswar",
+    "perks": [
+      "Parking"
+    ],
+    "meals": [
+      "Breakfast"
+    ],
+    "rating": 4,
+    "totalAmount": 87084
+  }
+]

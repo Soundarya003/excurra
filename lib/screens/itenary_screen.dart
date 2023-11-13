@@ -121,7 +121,6 @@ class _ItineraryScreenState extends State<ItineraryScreen> {
                           },
                         ),
                       ),
-                      ResortCard()
                     ],
                   ),
                 ),

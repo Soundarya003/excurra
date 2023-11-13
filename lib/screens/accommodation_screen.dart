@@ -4,21 +4,18 @@ import 'package:flutter/material.dart';
 // ignore_for_file: prefer_const_constructors
 import 'package:excurra/constants.dart';
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:excurra/travel_list/flight_working.dart';
-import 'package:excurra/travel_list/bus_working.dart';
-import 'package:excurra/travel_list/train_working.dart';
+import 'package:excurra/travel_list/resort_working.dart';
+import 'package:excurra/travel_list/hotel_working.dart';
+import 'package:excurra/travel_list/hostel_working.dart';
 
-class FlightScreen extends StatefulWidget {
-  static const String id = 'flight_screen';
+class AccomodationScreen extends StatefulWidget {
+  static const String id = 'accommodation_screen';
 
   @override
-  State<FlightScreen> createState() => _FlightScreenState();
+  State<AccomodationScreen> createState() => _AccomodationScreenState();
 }
 
-class _FlightScreenState extends State<FlightScreen> with TickerProviderStateMixin{
-
-  
-
+class _AccomodationScreenState extends State<AccomodationScreen> with TickerProviderStateMixin{
   @override
   Widget build(BuildContext context) {
     final Map<String, String> accumulatedData = ModalRoute.of(context)?.settings.arguments as Map<String, String>;
@@ -52,20 +49,20 @@ class _FlightScreenState extends State<FlightScreen> with TickerProviderStateMix
               Tab(
                 child: Align(
                   alignment: Alignment.center,
-                  child: Text("Flights"),
+                  child: Text("Hotels"),
                 ),
               ),
               Tab(
                 child: Align(
                   alignment: Alignment.center,
-                  child: Text('Train'),
+                  child: Text('Resorts'),
                 ),
               ),
               Tab(
                 child: Align(
                   alignment: Alignment.center,
                   child: Text(
-                    'Bus',
+                    'Hostels',
                   ),
                 ),
               ),
@@ -74,8 +71,8 @@ class _FlightScreenState extends State<FlightScreen> with TickerProviderStateMix
         ),
         body: TabBarView(
           children: [
-           FlightWorking(accumulatedData: accumulatedData,), TrainWorking(accumulatedData: accumulatedData,),
-            BusWorking(accumulatedData: accumulatedData)
+            HotelWorking(accumulatedData: accumulatedData), ResortWorking(accumulatedData: accumulatedData), 
+            HostelWorking(accumulatedData: accumulatedData)
           ],
         ),
       ),

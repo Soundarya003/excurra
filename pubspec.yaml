@@ -72,6 +72,8 @@ flutter:
   assets:
      - images/
      - images/Resorts/
+     - images/Hotels/
+     - images/Hostels/
      - json/
   #   - images/a_dot_ham.jpeg
 

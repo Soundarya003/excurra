@@ -1,22 +1,22 @@
 import 'dart:convert';
+import 'package:excurra/Cards/hostel_card.dart';
+import 'package:excurra/Widgets/create_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:excurra/Cards/resort_card.dart';
 import 'package:excurra/screens/preference.dart';
-import 'package:excurra/Widgets/create_button.dart';
-import 'dart:math';
 
-class ResortWorking extends StatefulWidget {
+class HostelWorking extends StatefulWidget {
   late Map<String, String> accumulatedData;
-  ResortWorking({required this.accumulatedData});
+  HostelWorking({required this.accumulatedData});
+
   @override
-  State<ResortWorking> createState() => _ResortWorkingState();
+  State<HostelWorking> createState() => _HostelWorkingState();
 }
 
-class _ResortWorkingState extends State<ResortWorking> {
+class _HostelWorkingState extends State<HostelWorking> {
   var jsonData;
   Future<void> loadJsonAsset() async {
-    final String jsonString = await rootBundle.loadString('json/resort_data.json');
+    final String jsonString = await rootBundle.loadString('json/hostel_data.json');
     var data = jsonDecode(jsonString);
     setState(() {
       jsonData = data;
@@ -29,13 +29,6 @@ class _ResortWorkingState extends State<ResortWorking> {
     super.initState();
     loadJsonAsset();
   }
-
-  List<int> generateUniqueRandomNumbers(int maxNumber) {
-    List<int> numbers = List.generate(maxNumber, (index) => index + 1);
-    numbers.shuffle();
-    return numbers;
-  }
-
   @override
   Widget build(BuildContext context) {
     final accumulatedData = widget.accumulatedData;
@@ -50,15 +43,14 @@ class _ResortWorkingState extends State<ResortWorking> {
               child: ListView.builder(
                   itemCount: jsonData.length,
                   itemBuilder: (context, index){
-                    var hotelData = jsonData[index];
-                    return ResortCard(
-                      resortName: hotelData['resortName'],
-                      resortLocation: hotelData['resortLocation'],
-                      perks: hotelData['perks'],
-                      meals: hotelData['meals'],
-                      rating: hotelData['rating'],
-                      totalAmount: hotelData['totalAmount'],
-                      imageNumber:  index+1,
+                    var hostelData = jsonData[index];
+                    return HostelCard(
+                        hostelName: hostelData['hostelName'],
+                        hostelLocation: hostelData['hostelLocation'],
+                        meals: hostelData['meals'],
+                        rating: hostelData['rating'],
+                        totalAmount: hostelData['totalAmount'],
+                        imageNumber: index+1
                     );
                   }
               )

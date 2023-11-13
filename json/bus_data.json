@@ -20,7 +20,7 @@
         "arrivalDate": "2023-11-21",
         "arrivalTime": "23:00",
         "busCode": 9179,
-        "busnName": "V R L Travels",
+        "busName": "V R L Travels",
         "duration": "3h 00m"
       }
     ],
@@ -47,7 +47,7 @@
         "arrivalDate": "2023-11-20",
         "arrivalTime": "12:17",
         "busCode": 8119,
-        "busnName": "Bharat Benz",
+        "busName": "Bharat Benz",
         "duration": "10h 00m"
       }
     ],
@@ -74,7 +74,7 @@
         "arrivalDate": "2023-11-20",
         "arrivalTime": "04:02",
         "busCode": 1746,
-        "busnName": "CSM Travels",
+        "busName": "CSM Travels",
         "duration": "14h 00m"
       }
     ],
@@ -101,7 +101,7 @@
         "arrivalDate": "2023-11-20",
         "arrivalTime": "12:08",
         "busCode": 7982,
-        "busnName": "CSM Travels",
+        "busName": "CSM Travels",
         "duration": "10h 00m"
       }
     ],
@@ -128,7 +128,7 @@
         "arrivalDate": "2023-11-20",
         "arrivalTime": "16:11",
         "busCode": 3039,
-        "busnName": "S R S Travels",
+        "busName": "S R S Travels",
         "duration": "5h 00m"
       }
     ],

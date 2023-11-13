@@ -5,7 +5,7 @@ import 'package:excurra/screens/travel_screen.dart';
 import 'package:flutter/services.dart';
 import 'package:excurra/screens/login.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:excurra/screens/hotel_screen.dart';
+import 'package:excurra/screens/accommodation_screen.dart';
 import 'package:excurra/screens/preference.dart';
 import 'package:provider/provider.dart';
 import 'package:excurra/screens/google_page.dart';
@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
         WelcomeScreen.id: (context)=> WelcomeScreen(),
         FlightScreen.id: (context) => FlightScreen(),
         SignInDemo.id: (context) => SignInDemo(),
-        HotelScreen.id : (context) => HotelScreen(),
+        AccomodationScreen.id : (context) => AccomodationScreen(),
         Homepage.id : (context) => Homepage(),
         ChoiceScreen.id: (context) => ChoiceScreen(),
         ItineraryScreen.id: (context) => ItineraryScreen(),

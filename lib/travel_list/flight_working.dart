@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:excurra/Widgets/create_button.dart';
-import 'package:excurra/screens/hotel_screen.dart';
+import 'package:excurra/screens/accommodation_screen.dart';
 import 'package:excurra/Cards/flight_card.dart';
 
 class FlightWorking extends StatefulWidget {
@@ -73,7 +73,7 @@ class _FlightWorkingState extends State<FlightWorking> with  AutomaticKeepAliveC
                   child: CreateButton(
                       buttonName: 'Next',
                       onPressed: () {
-                        Navigator.pushNamed(context, HotelScreen.id,
+                        Navigator.pushNamed(context, AccomodationScreen.id,
                             arguments:  accumulatedData);
                       }),
                   alignment: Alignment.center,

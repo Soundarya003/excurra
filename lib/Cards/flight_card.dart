@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:excurra/constants.dart';
-
-
 class FlightCard extends StatelessWidget {
   late String fromDest1;
   late String toDest1;
