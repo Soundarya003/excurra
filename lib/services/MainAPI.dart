@@ -74,10 +74,14 @@ class MainAPI {
    }
 
 
-   Future<dynamic> getItinerary() async
+   Future<dynamic> getItinerary(String arrivalCity,List<String>interests,String noOfDays, String totalPeople, String preference) async
    {
-      NetworkHelper networkHelper = NetworkHelper('https://c91f-117-213-200-2.ngrok-free.app/excurra/itinerary/Delhi/Adventure,Shopping,Temples/3/2/Friends');
+      String interestString = interests.join(",");
+      var mainUrl = '${mainURL}/itinerary/${arrivalCity}/${interestString}/'
+          '${noOfDays}/${totalPeople}/${preference}';
+      NetworkHelper networkHelper = NetworkHelper(mainUrl);
       var mainData =  await networkHelper.getData();
+      print(mainUrl);
       return mainData;
    }
 

@@ -1,4 +1,5 @@
 import 'dart:collection';
+import 'dart:convert';
 import 'package:excurra/Widgets/country_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:excurra/Widgets/date.dart';
@@ -8,6 +9,7 @@ import 'package:excurra/Widgets/create_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:excurra/Widgets/sidemenu.dart';
 import 'package:excurra/Widgets/traveller_widget.dart';
+import 'package:flutter/services.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const String id = 'welcome_screen';
@@ -21,8 +23,32 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   // ignore_for_file: prefer_const_constructors
 
   // Initial Selected Value
-  String from_country = 'Option 1';
-  String to_country = 'Option 2';
+  List cityData = [];
+  String selectedCity1 = '';
+  String selectedCity2 = '';
+
+  void swapSelectedCities() {
+    setState(() {
+      String? temp = selectedCity1;
+      selectedCity1 = selectedCity2;
+      selectedCity2 = temp;
+    });
+  }
+
+  Future<String> loadCityData() async {
+    return await rootBundle.loadString('json/cities.json');
+  }
+
+  Future<void> getAllCities() async {
+    String data = await loadCityData();
+    var jsonData = json.decode(data);
+    if (mounted) {
+      setState(() {
+        cityData = jsonData['cities'];
+      });
+    }
+  }
+
   DateTime now = DateTime.now();
   DateTime last = DateTime.now().add(Duration(days: 1));
   HashMap<String, String> accumulatedData = new HashMap();
@@ -42,6 +68,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    getAllCities();
   }
 
   @override
@@ -95,8 +122,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         children: [
                           Expanded(
                               child: Padding(
-                            padding: EdgeInsets.all(10.0),
-                            child: Row(
+                                padding: EdgeInsets.all(10.0),
+                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Icon(
@@ -104,36 +131,38 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                   color: Colors.black,
                                 ),
                                 SizedBox(
-                                  width: 25.0,
+                                  width: 10.0,
                                 ),
-                                CreateDropDown(
-                                  dropdownValue: from_country,
-                                  onChanged: (String? newValue) {
-                                    setState(() {
-                                      from_country = newValue!;
-                                    });
-                                  },
-                                )
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: CityDropdown(
+                                    cityData: cityData,
+                                    onCitySelected: (city) {
+                                      setState(() {
+                                        selectedCity1 = city;
+                                      });
+                                    },
+                                    selectedCity: selectedCity1,
+                                  ),
+                                ),
+
                               ],
                             ),
                           )),
                           Container(
                             decoration: arrowDecoration(),
-                            child: TextButton(
-                              onPressed: () {
-                                setState(() {
-                                  String temp = from_country;
-                                  from_country = to_country;
-                                  to_country = temp;
-                                });
-                              },
-                              child: RotatedBox(
-                                quarterTurns: 1,
-                                child: Icon(
+                            height: 44,
+                            child: RotatedBox(
+                              quarterTurns: 1,
+                              child: IconButton(
+                                icon: Icon(
                                   Icons.compare_arrows_rounded,
                                   color: Colors.black,
-                                  size: 30.0,
+                                  size: 27.0,
                                 ),
+                                onPressed: () {
+                                  swapSelectedCities();
+                                },
                               ),
                             ),
                           ),
@@ -148,16 +177,22 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                   color: Colors.black,
                                 ),
                                 SizedBox(
-                                  width: 25.0,
+                                  width: 10.0,
                                 ),
-                                CreateDropDown(
-                                  dropdownValue: to_country,
-                                  onChanged: (String? newValue) {
-                                    setState(() {
-                                      to_country = newValue!;
-                                    });
-                                  },
-                                )
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: CityDropdown(
+                                    cityData: cityData,
+                                    onCitySelected: (city) {
+                                      setState(() {
+                                        selectedCity2 = city;
+                                      });
+                                    },
+                                    selectedCity: selectedCity2,
+                                  ),
+                                ),
+
+
                               ],
                             ),
                           )),
@@ -196,7 +231,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                       setState(() {
                                         if (datepicked != null) {
                                           from_date =
-                                              '${datepicked.day}-${datepicked.month}-${datepicked.year}';
+                                              '${datepicked.year}-${datepicked.month}-${datepicked.day}';
                                         }
                                       });
                                     },
@@ -217,7 +252,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                       setState(() {
                                         if (datepicked != null) {
                                           to_date =
-                                              '${datepicked.day}-${datepicked.month}-${datepicked.year}';
+                                              '${datepicked.year}-${datepicked.month}-${datepicked.day}';
                                           print(to_date);
                                         }
                                       });
@@ -265,7 +300,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             subtract: () {
                               setState(() {
                                 if (children <= 1) {
-                                  children = 1;
+                                  children = 0;
                                 } else {
                                   children--;
                                 }
@@ -282,6 +317,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                   onPressed: () {
                                     accumulatedData.addAll(
                                       {
+                                        'dept_city': selectedCity1,
+                                        'arrival_city': selectedCity2,
                                         'from_date':from_date,
                                         'to_date': to_date,
                                         'numberOfAdults': '${adults}',

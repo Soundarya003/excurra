@@ -18,7 +18,7 @@ class _FlightWorkingState extends State<FlightWorking> with  AutomaticKeepAliveC
   late Map<String, String> accumulatedData;
   var jsonData;
   Future<void> loadJsonAsset() async {
-    var apiData = await MainAPI().getFlight('Chennai', 'Hyderabad', accumulatedData['from_date']!, accumulatedData['to_date']!, accumulatedData['numberOfAdults']!, accumulatedData['numberofChildren']!, 'Economy');
+    var apiData = await MainAPI().getFlight(accumulatedData['dept_city']!, accumulatedData['arrival_city']!, accumulatedData['from_date']!, accumulatedData['to_date']!, accumulatedData['numberOfAdults']!, accumulatedData['numberofChildren']!, 'Economy');
     setState(() {
       jsonData = apiData;
     });
@@ -50,19 +50,19 @@ class _FlightWorkingState extends State<FlightWorking> with  AutomaticKeepAliveC
                        var flightData = jsonData[index];
                        return  FlightCard(
                          cost: flightData['totalAmount'].toString(),
-                         toDest1: 'Vijayawada',
+                         toDest1: accumulatedData['arrival_city']!,
                          toTime1: flightData['flightDetails'][0]['arrivalTime'].toString().substring(11,16),
-                         fromDest1: 'Chennai',
+                         fromDest1: accumulatedData['dept_city']!,
                          fromTime1:  flightData['flightDetails'][0]['deptTime'].toString().substring(11,16),
                          flightName1: flightData['flightDetails'][0]['airlineNames'][0],
                          journeyTime1: flightData['flightDetails'][0]['duration'],
                          nonStop1: isThere1,
                          flightName2: flightData['flightDetails'][1]['airlineNames'][0],
-                         fromDest2: 'Vijaywada',
+                         fromDest2: accumulatedData['arrival_city']!,
                          fromTime2: flightData['flightDetails'][1]['deptTime'].toString().substring(11,16),
                          journeyTime2: flightData['flightDetails'][1]['duration'],
                          nonStop2: isThere2,
-                         toDest2: 'Chennai',
+                         toDest2: accumulatedData['dept_city']!,
                          toTime2: flightData['flightDetails'][1]['arrivalTime'].toString().substring(11,16),
                          stopOver1: isThere1 ? ' ': flightData['flightDetails'][0]['stopoverAirports'][0],
                          stopOver2: isThere2 ? ' ': flightData['flightDetails'][1]['stopoverAirports'][0],

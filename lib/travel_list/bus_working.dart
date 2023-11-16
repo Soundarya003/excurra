@@ -20,7 +20,7 @@ class _BusWorkingState extends State<BusWorking> with AutomaticKeepAliveClientMi
   late Map<String, String> accumulatedData;
   var jsonData;
   Future<void> loadJsonAsset() async {
-    var apiData = await MainAPI().getBuses('Chennai', 'Hyderabad', accumulatedData['from_date']!, accumulatedData['to_date']!, accumulatedData['numberOfAdults']!, accumulatedData['numberofChildren']!, 'Sleeper');
+    var apiData = await MainAPI().getBuses(accumulatedData['dept_city']!, accumulatedData['arrival_city']!, accumulatedData['from_date']!, accumulatedData['to_date']!, accumulatedData['numberOfAdults']!, accumulatedData['numberofChildren']!, 'Sleeper');
     setState(() {
       jsonData = apiData;
     });
@@ -48,15 +48,15 @@ class _BusWorkingState extends State<BusWorking> with AutomaticKeepAliveClientMi
                   itemBuilder: (context, index){
                     var busData = jsonData[index]['bus_details'];
                     return  BusCard(
-                        fromDest1: 'Chennai',
-                        toDest1: 'Delhi',
+                        fromDest1: accumulatedData['dept_city']!,
+                        toDest1: accumulatedData['arrival_city']!,
                         arrivalTime1: busData[0]['arrivalTime'],
                         deptTime1: busData[0]['deptTime'],
                         busCode1: busData[0]['busCode'],
                         busName1: busData[0]['busName'],
                         duration1: busData[0]['duration'],
-                        fromDest2: 'Delhi',
-                        toDest2: 'Chennai',
+                        fromDest2:  accumulatedData['arrival_city']!,
+                        toDest2: accumulatedData['dept_city']!,
                         arrivalTime2: busData[1]['arrivalTime'],
                         deptTime2: busData[1]['deptTime'],
                         busCode2: busData[1]['busCode'],

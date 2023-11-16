@@ -19,7 +19,7 @@ class _TrainWorkingState extends State<TrainWorking> with AutomaticKeepAliveClie
   var newData;
   late Map<String, String> accumulatedData;
   Future<void> loadJsonAsset() async {
-    var apiData = await MainAPI().getTrain('Chennai', 'Hyderabad', accumulatedData['from_date']!, accumulatedData['to_date']!, accumulatedData['numberOfAdults']!, accumulatedData['numberofChildren']!, 'Sleeper');
+    var apiData = await MainAPI().getTrain(accumulatedData['dept_city']!, accumulatedData['arrival_city']!, accumulatedData['from_date']!, accumulatedData['to_date']!, accumulatedData['numberOfAdults']!, accumulatedData['numberofChildren']!, 'Sleeper');
     setState(() {
       newData = apiData;
     });
@@ -59,10 +59,10 @@ class _TrainWorkingState extends State<TrainWorking> with AutomaticKeepAliveClie
                         trainName1: trainData[0]['trainName'],
                         trainName2: trainData[1]['trainName'],
                         cost: newData[index]['total_amount'],
-                        fromDest1: 'Vijawayada',
-                        toDest1: 'Chennai',
-                        fromDest2: 'Chennai',
-                        toDest2: 'Vijaywada',);
+                        fromDest1: accumulatedData['dept_city']!,
+                        toDest1: accumulatedData['arrival_city']!,
+                        fromDest2: accumulatedData['arrival_city']!,
+                        toDest2:  accumulatedData['dept_city']!);
                   }
               ),
             ),

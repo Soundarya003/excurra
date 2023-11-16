@@ -18,7 +18,7 @@ class _HotelWorkingState extends State<HotelWorking> {
   late Map<String, String> accumulatedData;
   var jsonData;
   Future<void> loadJsonAsset() async {
-    var apiData = await MainAPI().getHotels('Hyderabad', accumulatedData['from_date']!, accumulatedData['to_date']!, accumulatedData['numberOfAdults']!, accumulatedData['numberofChildren']!);
+    var apiData = await MainAPI().getHotels( accumulatedData['arrival_city']!, accumulatedData['from_date']!, accumulatedData['to_date']!, accumulatedData['numberOfAdults']!, accumulatedData['numberofChildren']!);
     setState(() {
       jsonData = apiData;
     });
