@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:excurra/Widgets/create_button.dart';
 import 'package:excurra/screens/accommodation_screen.dart';
 import 'package:excurra/Cards/flight_card.dart';
+import 'package:excurra/services/MainAPI.dart';
 
 class FlightWorking extends StatefulWidget {
   @override
@@ -14,13 +15,12 @@ class FlightWorking extends StatefulWidget {
 
 class _FlightWorkingState extends State<FlightWorking> with  AutomaticKeepAliveClientMixin<FlightWorking>{
   @override
-
+  late Map<String, String> accumulatedData;
   var jsonData;
   Future<void> loadJsonAsset() async {
-    final String jsonString = await rootBundle.loadString('json/flight_data.json');
-    var data = jsonDecode(jsonString);
+    var apiData = await MainAPI().getFlight('Chennai', 'Hyderabad', accumulatedData['from_date']!, accumulatedData['to_date']!, accumulatedData['numberOfAdults']!, accumulatedData['numberofChildren']!, 'Economy');
     setState(() {
-      jsonData = data;
+      jsonData = apiData;
     });
     //print(jsonData);
   }
@@ -28,6 +28,7 @@ class _FlightWorkingState extends State<FlightWorking> with  AutomaticKeepAliveC
   void initState() {
     // TODO: implement initState
     super.initState();
+    accumulatedData = widget.accumulatedData;
     loadJsonAsset();
   }
 

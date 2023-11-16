@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:excurra/Widgets/create_button.dart';
 import 'package:excurra/screens/accommodation_screen.dart';
+import 'package:excurra/services/MainAPI.dart';
 import 'package:flutter/material.dart';
 import 'package:excurra/Cards/bus_card.dart';
 import 'package:flutter/services.dart';
@@ -16,12 +17,12 @@ class BusWorking extends StatefulWidget {
 
 class _BusWorkingState extends State<BusWorking> with AutomaticKeepAliveClientMixin<BusWorking>{
   @override
+  late Map<String, String> accumulatedData;
   var jsonData;
   Future<void> loadJsonAsset() async {
-    final String jsonString = await rootBundle.loadString('json/bus_data.json');
-    var data = jsonDecode(jsonString);
+    var apiData = await MainAPI().getBuses('Chennai', 'Hyderabad', accumulatedData['from_date']!, accumulatedData['to_date']!, accumulatedData['numberOfAdults']!, accumulatedData['numberofChildren']!, 'Sleeper');
     setState(() {
-      jsonData = data;
+      jsonData = apiData;
     });
     //print(jsonData);
   }
@@ -29,11 +30,11 @@ class _BusWorkingState extends State<BusWorking> with AutomaticKeepAliveClientMi
   void initState() {
     // TODO: implement initState
     super.initState();
+    accumulatedData = widget.accumulatedData;
     loadJsonAsset();
   }
 
   Widget build(BuildContext context) {
-    final accumulatedData = widget.accumulatedData;
     if (jsonData == null) {
       return Center(child: CircularProgressIndicator());
     }

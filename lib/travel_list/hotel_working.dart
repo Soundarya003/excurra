@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:excurra/services/MainAPI.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:excurra/Cards/hotel_card.dart';
@@ -14,18 +15,20 @@ class HotelWorking extends StatefulWidget {
 
 class _HotelWorkingState extends State<HotelWorking> {
   @override
+  late Map<String, String> accumulatedData;
   var jsonData;
   Future<void> loadJsonAsset() async {
-    final String jsonString = await rootBundle.loadString('json/hotel_data.json');
-    var data = jsonDecode(jsonString);
+    var apiData = await MainAPI().getHotels('Hyderabad', accumulatedData['from_date']!, accumulatedData['to_date']!, accumulatedData['numberOfAdults']!, accumulatedData['numberofChildren']!);
     setState(() {
-      jsonData = data;
+      jsonData = apiData;
     });
+    //print(jsonData);
   }
 
   void initState() {
     // TODO: implement initState
     super.initState();
+    accumulatedData = widget.accumulatedData;
     loadJsonAsset();
   }
   Widget build(BuildContext context) {

@@ -4,6 +4,7 @@ import 'package:excurra/screens/accommodation_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:excurra/Cards/train_card.dart';
+import 'package:excurra/services/MainAPI.dart';
 
 class TrainWorking extends StatefulWidget {
   @override
@@ -15,11 +16,12 @@ class TrainWorking extends StatefulWidget {
 class _TrainWorkingState extends State<TrainWorking> with AutomaticKeepAliveClientMixin<TrainWorking>{
   @override
   var jsonData;
+  var newData;
+  late Map<String, String> accumulatedData;
   Future<void> loadJsonAsset() async {
-    final String jsonString = await rootBundle.loadString('json/train_data.json');
-    var data = jsonDecode(jsonString);
+    var apiData = await MainAPI().getTrain('Chennai', 'Hyderabad', accumulatedData['from_date']!, accumulatedData['to_date']!, accumulatedData['numberOfAdults']!, accumulatedData['numberofChildren']!, 'Sleeper');
     setState(() {
-      jsonData = data;
+      newData = apiData;
     });
     //print(jsonData);
   }
@@ -27,12 +29,13 @@ class _TrainWorkingState extends State<TrainWorking> with AutomaticKeepAliveClie
   void initState() {
     // TODO: implement initState
     super.initState();
+    accumulatedData = widget.accumulatedData;
     loadJsonAsset();
   }
 
   Widget build(BuildContext context) {
     final accumulatedData = widget.accumulatedData;
-    if (jsonData == null) {
+    if (newData == null) {
       return Center(child: CircularProgressIndicator());
     }
     return Center(
@@ -41,9 +44,9 @@ class _TrainWorkingState extends State<TrainWorking> with AutomaticKeepAliveClie
           children: [
             Expanded(
               child: ListView.builder(
-                  itemCount: jsonData.length,
+                  itemCount: 4,
                   itemBuilder: (context, index){
-                    var trainData = jsonData[index]['train_details'];
+                    var trainData = newData[index]['train_details'];
                     return  TrainCard(
                         deptTime1: trainData[0]['deptTime'],
                         arrivalTime1: trainData[0]['arrivalTime'],
@@ -55,7 +58,7 @@ class _TrainWorkingState extends State<TrainWorking> with AutomaticKeepAliveClie
                         trainCode2: trainData[1]['trainCode'],
                         trainName1: trainData[0]['trainName'],
                         trainName2: trainData[1]['trainName'],
-                        cost: jsonData[index]['total_amount'],
+                        cost: newData[index]['total_amount'],
                         fromDest1: 'Vijawayada',
                         toDest1: 'Chennai',
                         fromDest2: 'Chennai',
@@ -69,6 +72,8 @@ class _TrainWorkingState extends State<TrainWorking> with AutomaticKeepAliveClie
                   onPressed: () {
                     Navigator.pushNamed(context, AccomodationScreen.id,
                         arguments:  accumulatedData);
+                    // Navigator.pushNamed(context, AccomodationScreen.id,
+                    //     arguments:  accumulatedData);
                   }),
               alignment: Alignment.center,
             ),],

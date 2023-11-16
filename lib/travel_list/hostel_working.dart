@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:excurra/Cards/hostel_card.dart';
 import 'package:excurra/Widgets/create_button.dart';
+import 'package:excurra/services/MainAPI.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:excurra/screens/preference.dart';
@@ -14,12 +15,12 @@ class HostelWorking extends StatefulWidget {
 }
 
 class _HostelWorkingState extends State<HostelWorking> {
+  late Map<String, String> accumulatedData;
   var jsonData;
   Future<void> loadJsonAsset() async {
-    final String jsonString = await rootBundle.loadString('json/hostel_data.json');
-    var data = jsonDecode(jsonString);
+    var apiData = await MainAPI().getHostels('Hyderabad', accumulatedData['from_date']!, accumulatedData['to_date']!, accumulatedData['numberOfAdults']!, accumulatedData['numberofChildren']!);
     setState(() {
-      jsonData = data;
+      jsonData = apiData;
     });
     //print(jsonData);
   }
@@ -27,6 +28,7 @@ class _HostelWorkingState extends State<HostelWorking> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    accumulatedData = widget.accumulatedData;
     loadJsonAsset();
   }
   @override
