@@ -114,6 +114,22 @@ const purpleGradient = LinearGradient (
   stops:  <double>[0, 1],
 );
 
+const kSplashText1 = TextStyle(
+    fontSize: 75,
+    color: Color(0xFFCE4263),
+    fontFamily: 'OpenSans_Condensed-SemiBold',
+    fontWeight: FontWeight.w700
+);
+
+const kSplashText2 = TextStyle(
+    fontSize: 75,
+    color: Color(0xFF6231A4),
+    fontFamily: 'OpenSans_Condensed-SemiBold',
+    fontWeight: FontWeight.w700
+);
+
+const kSubSplash  = TextStyle(fontSize: 18, color: Color(0xFFCB6CE6), fontFamily: 'Rubik-Black', fontWeight: FontWeight.w700);
+
 class GradientIcon extends StatelessWidget {
   final IconData icon;
   final double size;

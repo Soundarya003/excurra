@@ -72,7 +72,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                         offset: Offset(_slideAnimation.value, 0.0),
                         child: Text(
                           'EXCURRA',
-                          style: TextStyle(fontSize: 75, color: Color(0xFFCE4263), fontFamily: 'OpenSans_Condensed-SemiBold', fontWeight: FontWeight.w700),
+                          style: kSplashText1,
                         ),
                       ),
                     );
@@ -90,7 +90,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                           offset: Offset(-_slideAnimation.value, 0.0),
                           child: Text(
                             'EXCURRA',
-                            style: TextStyle(fontSize: 75, color: Color(0xFF6228D7), fontFamily: 'OpenSans_Condensed-SemiBold', fontWeight: FontWeight.w700),
+                            style: kSplashText2,
                           ),
                         ),
                       );

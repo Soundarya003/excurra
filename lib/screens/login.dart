@@ -21,19 +21,19 @@ class SignInDemo extends StatelessWidget {
               children: [
                 Text(
                   'EXCURRA',
-                  style: TextStyle(fontSize: 75, color: Color(0xFFCE4263), fontFamily: 'OpenSans_Condensed-SemiBold', fontWeight: FontWeight.w700),
+                  style: kSplashText1,
                 ),
                 Positioned(
                   bottom: 2,
                   right: 4, // Adjust the value to set the gap between the texts
                   child: Text(
                     'EXCURRA',
-                    style: TextStyle(fontSize: 75, color: Color(0xFF6228D7),fontFamily: 'OpenSans_Condensed-SemiBold', fontWeight: FontWeight.w700),
+                    style: kSplashText2,
                   ),
                 ),
               ],
             ),
-            Text('THE ONLY PLANNER YOU NEED', style: TextStyle(fontSize: 18, color: Color(0xFFCB6CE6), fontFamily: 'Rubik-Black', fontWeight: FontWeight.w700) ,),
+            Text('THE ONLY PLANNER YOU NEED', style: kSubSplash ,),
             SizedBox(height: 15,),
             Padding(
               padding: EdgeInsets.all(25.0),
