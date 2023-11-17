@@ -105,6 +105,15 @@ flutter:
         - asset: fonts/Raleway-Regular.ttf
         - asset: fonts/Raleway-Light.ttf
           weight: 400
+    - family: Open Sans
+      fonts:
+        - asset: fonts/OpenSans_Condensed-SemiBold.ttf
+        - asset: fonts/OpenSans_Condensed-Bold.ttf
+          weight: 600
+    - family: Rubik_Black
+      fonts:
+        - asset: fonts/Rubik-Black.ttf
+          weight: 600
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

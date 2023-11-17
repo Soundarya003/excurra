@@ -145,7 +145,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                     selectedCity: selectedCity1,
                                   ),
                                 ),
-
                               ],
                             ),
                           )),

@@ -10,6 +10,7 @@ import 'package:excurra/screens/preference.dart';
 import 'package:provider/provider.dart';
 import 'package:excurra/screens/google_page.dart';
 import 'package:excurra/screens/itenary_screen.dart';
+import 'package:excurra/screens/splash_screen.dart';
 
 void main() async{
   // this is to ensure our app stays in landscape mode even if it's in auto rotation
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
           bodyMedium: TextStyle(color: Colors.black54),
         ),
       ),
-      initialRoute: Homepage.id,
+      initialRoute: SplashScreen.id,
       routes: {
         WelcomeScreen.id: (context)=> WelcomeScreen(),
         FlightScreen.id: (context) => FlightScreen(),
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
         Homepage.id : (context) => Homepage(),
         ChoiceScreen.id: (context) => ChoiceScreen(),
         ItineraryScreen.id: (context) => ItineraryScreen(),
+        SplashScreen.id :(context) => SplashScreen(),
       },
     ),
   );

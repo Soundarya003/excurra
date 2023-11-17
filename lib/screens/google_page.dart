@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:excurra/screens/welcome.dart';
 import 'package:excurra/screens/login.dart';
+import 'package:excurra/screens/splash_screen.dart';
 
 
 class Homepage extends StatelessWidget {
