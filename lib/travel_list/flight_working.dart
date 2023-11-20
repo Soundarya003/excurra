@@ -9,14 +9,15 @@ import 'package:excurra/services/MainAPI.dart';
 class FlightWorking extends StatefulWidget {
   @override
   State<FlightWorking> createState() => _FlightWorkingState();
-  late Map<String, String> accumulatedData;
+  late Map<String, dynamic> accumulatedData;
   FlightWorking({required this.accumulatedData});
 }
 
 class _FlightWorkingState extends State<FlightWorking> with  AutomaticKeepAliveClientMixin<FlightWorking>{
   @override
-  late Map<String, String> accumulatedData;
+  late Map<String, dynamic> accumulatedData;
   var jsonData;
+  int selectedCardIndex = -1;
   Future<void> loadJsonAsset() async {
     var apiData = await MainAPI().getFlight(accumulatedData['dept_city']!, accumulatedData['arrival_city']!, accumulatedData['from_date']!, accumulatedData['to_date']!, accumulatedData['numberOfAdults']!, accumulatedData['numberofChildren']!, 'Economy');
     setState(() {
@@ -37,6 +38,15 @@ class _FlightWorkingState extends State<FlightWorking> with  AutomaticKeepAliveC
     if (jsonData == null) {
       return Center(child: CircularProgressIndicator());
     }
+    void handleCardSelection(int index) {
+      setState(() {
+        if (selectedCardIndex == index) {
+          selectedCardIndex = -1; // Deselect the card if it's already selected
+        } else {
+          selectedCardIndex = index; // Select the new card
+        }
+      });
+    }
     bool isThere1 = jsonData[0]['flightDetails'][0]['nonStop']=='true';
     bool isThere2 = jsonData[1]['flightDetails'][0]['nonStop']=='true';
     return Center(
@@ -48,24 +58,35 @@ class _FlightWorkingState extends State<FlightWorking> with  AutomaticKeepAliveC
                      itemCount: jsonData.length,
                      itemBuilder: (context, index){
                        var flightData = jsonData[index];
-                       return  FlightCard(
-                         cost: flightData['totalAmount'].toString(),
-                         toDest1: accumulatedData['arrival_city']!,
-                         toTime1: flightData['flightDetails'][0]['arrivalTime'].toString().substring(11,16),
-                         fromDest1: accumulatedData['dept_city']!,
-                         fromTime1:  flightData['flightDetails'][0]['deptTime'].toString().substring(11,16),
-                         flightName1: flightData['flightDetails'][0]['airlineNames'][0],
-                         journeyTime1: flightData['flightDetails'][0]['duration'],
-                         nonStop1: isThere1,
-                         flightName2: flightData['flightDetails'][1]['airlineNames'][0],
-                         fromDest2: accumulatedData['arrival_city']!,
-                         fromTime2: flightData['flightDetails'][1]['deptTime'].toString().substring(11,16),
-                         journeyTime2: flightData['flightDetails'][1]['duration'],
-                         nonStop2: isThere2,
-                         toDest2: accumulatedData['dept_city']!,
-                         toTime2: flightData['flightDetails'][1]['arrivalTime'].toString().substring(11,16),
-                         stopOver1: isThere1 ? ' ': flightData['flightDetails'][0]['stopoverAirports'][0],
-                         stopOver2: isThere2 ? ' ': flightData['flightDetails'][1]['stopoverAirports'][0],
+                       return  GestureDetector(
+                         onTap: (){
+                           setState(() {
+                             selectedCardIndex = index;
+                           });
+                         },
+                         child: FlightCard(
+                           cost: flightData['totalAmount'].toString(),
+                           toDest1: accumulatedData['arrival_city']!,
+                           toTime1: flightData['flightDetails'][0]['arrivalTime'].toString().substring(11,16),
+                           fromDest1: accumulatedData['dept_city']!,
+                           fromTime1:  flightData['flightDetails'][0]['deptTime'].toString().substring(11,16),
+                           flightName1: flightData['flightDetails'][0]['airlineNames'][0],
+                           journeyTime1: flightData['flightDetails'][0]['duration'],
+                           nonStop1: isThere1,
+                           flightName2: flightData['flightDetails'][1]['airlineNames'][0],
+                           fromDest2: accumulatedData['arrival_city']!,
+                           fromTime2: flightData['flightDetails'][1]['deptTime'].toString().substring(11,16),
+                           journeyTime2: flightData['flightDetails'][1]['duration'],
+                           nonStop2: isThere2,
+                           toDest2: accumulatedData['dept_city']!,
+                           toTime2: flightData['flightDetails'][1]['arrivalTime'].toString().substring(11,16),
+                           stopOver1: isThere1 ? ' ': flightData['flightDetails'][0]['stopoverAirports'][0],
+                           stopOver2: isThere2 ? ' ': flightData['flightDetails'][1]['stopoverAirports'][0],
+                           selected: selectedCardIndex == index,
+                           onSelect: (bool selected) {
+                             handleCardSelection(index);
+                           },
+                         ),
                        );
                      }
                  ),
@@ -74,6 +95,13 @@ class _FlightWorkingState extends State<FlightWorking> with  AutomaticKeepAliveC
                   child: CreateButton(
                       buttonName: 'Next',
                       onPressed: () {
+                        if (selectedCardIndex != -1) {
+                          print("Selected card index: $selectedCardIndex");
+                          print(jsonData[selectedCardIndex]);
+                          accumulatedData.addAll({
+                            'flightData': jsonData[selectedCardIndex],
+                          });
+                        }
                         Navigator.pushNamed(context, AccomodationScreen.id,
                             arguments:  accumulatedData);
                       }),
@@ -86,6 +114,4 @@ class _FlightWorkingState extends State<FlightWorking> with  AutomaticKeepAliveC
   @override
   // TODO: implement wantKeepAlive
   bool get wantKeepAlive => true;
-
-
 }

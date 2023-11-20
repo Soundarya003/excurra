@@ -9,14 +9,15 @@ import 'package:flutter/services.dart';
 class BusWorking extends StatefulWidget {
   @override
   State<BusWorking> createState() => _BusWorkingState();
-  late Map<String, String> accumulatedData;
+  late Map<String, dynamic> accumulatedData;
   BusWorking({required this.accumulatedData});
 }
 
 class _BusWorkingState extends State<BusWorking> with AutomaticKeepAliveClientMixin<BusWorking>{
   @override
-  late Map<String, String> accumulatedData;
+  late Map<String, dynamic> accumulatedData;
   var jsonData;
+  int selectedCardIndex = -1;
   Future<void> loadJsonAsset() async {
     var apiData = await MainAPI().getBuses(accumulatedData['dept_city']!, accumulatedData['arrival_city']!, accumulatedData['from_date']!, accumulatedData['to_date']!, accumulatedData['numberOfAdults']!, accumulatedData['numberofChildren']!, 'Sleeper');
     setState(() {
@@ -35,6 +36,15 @@ class _BusWorkingState extends State<BusWorking> with AutomaticKeepAliveClientMi
   Widget build(BuildContext context) {
     if (jsonData == null) {
       return Center(child: CircularProgressIndicator());
+    }
+    void handleCardSelection(int index) {
+      setState(() {
+        if (selectedCardIndex == index) {
+          selectedCardIndex = -1; // Deselect the card if it's already selected
+        } else {
+          selectedCardIndex = index; // Select the new card
+        }
+      });
     }
     return Center(
         child: Column(
@@ -60,7 +70,12 @@ class _BusWorkingState extends State<BusWorking> with AutomaticKeepAliveClientMi
                         busCode2: busData[1]['busCode'],
                         busName2: busData[1]['busName'],
                         duration2: busData[1]['duration'],
-                        cost: jsonData[index]['total_amount']);
+                        cost: jsonData[index]['total_amount'],
+                        selected: selectedCardIndex == index,
+                       onSelect: (bool ) {
+                         handleCardSelection(index);
+                       },
+                    );
                   }
               ),
             ),
@@ -68,6 +83,13 @@ class _BusWorkingState extends State<BusWorking> with AutomaticKeepAliveClientMi
               child: CreateButton(
                   buttonName: 'Next',
                   onPressed: () {
+                    if (selectedCardIndex != -1) {
+                      print("Selected card index: $selectedCardIndex");
+                      print(jsonData[selectedCardIndex]);
+                      accumulatedData.addAll({
+                        'busData': jsonData[selectedCardIndex]
+                      });
+                    }
                     Navigator.pushNamed(context, AccomodationScreen.id,
                         arguments:  accumulatedData);
                   }),

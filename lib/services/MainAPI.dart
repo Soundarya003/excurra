@@ -22,8 +22,6 @@ class MainAPI {
           '${noOfChildren}/${flightClass}';
       NetworkHelper networkHelper = NetworkHelper(mainUrl);
       var flightData = await networkHelper.getData();
-      print(mainUrl);
-      print(flightData);
       return flightData;
    }
 
@@ -34,8 +32,6 @@ class MainAPI {
           '${noOfChildren}/${busClass}';
       NetworkHelper networkHelper = NetworkHelper(mainUrl);
       var busData = await networkHelper.getData();
-      print(mainUrl);
-      print(busData);
       return busData;
    }
 
@@ -47,7 +43,6 @@ class MainAPI {
           '${noOfChildren}';
       NetworkHelper networkHelper = NetworkHelper(mainUrl);
       var hotelData = await networkHelper.getData();
-      print(mainUrl);
       return hotelData;
    }
 
@@ -58,7 +53,6 @@ class MainAPI {
           '${noOfChildren}';
       NetworkHelper networkHelper = NetworkHelper(mainUrl);
       var resortData = await networkHelper.getData();
-      print(mainUrl);
       return resortData;
    }
 
@@ -69,7 +63,6 @@ class MainAPI {
           '${noOfChildren}';
       NetworkHelper networkHelper = NetworkHelper(mainUrl);
       var hostelData = await networkHelper.getData();
-      print(mainUrl);
       return hostelData;
    }
 
@@ -81,7 +74,6 @@ class MainAPI {
           '${noOfDays}/${totalPeople}/${preference}';
       NetworkHelper networkHelper = NetworkHelper(mainUrl);
       var mainData =  await networkHelper.getData();
-      print(mainUrl);
       return mainData;
    }
 

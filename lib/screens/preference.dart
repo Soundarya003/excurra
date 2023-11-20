@@ -47,7 +47,7 @@ class _ChoiceScreenState extends State<ChoiceScreen> with TickerProviderStateMix
   @override
   Widget build(BuildContext context) {
 
-    Map<String, String> accumulatedData = ModalRoute.of(context)?.settings.arguments as Map<String,String>;
+    Map<String, dynamic> accumulatedData = ModalRoute.of(context)?.settings.arguments as Map<String,dynamic>;
     Map<String, dynamic> finalData = new Map();
     if(accumulatedData!=null){
       finalData.addAll(accumulatedData);
@@ -110,7 +110,7 @@ class _ChoiceScreenState extends State<ChoiceScreen> with TickerProviderStateMix
                             Tab(
                               child: Align(
                                 alignment: Alignment.center,
-                                child: Text("Solo"),
+                                child: Text("Tourist"),
                               ),
                             ),
                             Tab(

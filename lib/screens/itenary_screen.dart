@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:excurra/Cards/resort_card.dart';
+import 'package:excurra/Widgets/create_button.dart';
 import 'package:excurra/services/MainAPI.dart';
 import 'package:flutter/material.dart';
 // ignore_for_file: prefer_const_constructors
@@ -25,7 +26,7 @@ class _ItineraryScreenState extends State<ItineraryScreen> {
     super.didChangeDependencies();
     accumulatedData = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
     addAll();
-    loadJsonAsset();
+    // loadJsonAsset();
   }
 
   @override
@@ -59,35 +60,27 @@ class _ItineraryScreenState extends State<ItineraryScreen> {
     }
   }
   var jsonData;
-  Future<void> loadJsonAsset() async {
-    var apiData = await MainAPI().getItinerary(accumulatedData['arrival_city'], allOptions, '${difference}', '${total}',
-        accumulatedData['travelPreference']!);
-    setState(() {
-      jsonData = apiData;
-    });
-    //print(jsonData);
-  }
+  // Future<void> loadJsonAsset() async {
+  //   var apiData = await MainAPI().getItinerary(accumulatedData['arrival_city'], allOptions, '${difference}', '${total}',
+  //       accumulatedData['travelPreference']!);
+  //   setState(() {
+  //     jsonData = apiData;
+  //   });
+  //   //print(jsonData);
+  // }
 
   Widget build(BuildContext context) {
-    if (jsonData == null) {
-      return Center(child: CircularProgressIndicator());
-    }
-    var activities = jsonData['activities'];
+    // if (jsonData == null) {
+    //   return Center(child: CircularProgressIndicator());
+    // }
+    // var activities = jsonData['activities'];
     return SafeArea(
       child: Scaffold(
-        body: Container(
-          color: Color(0xFFFBFCF8),
-          padding: EdgeInsets.all(10.0),
-          child: ListView.builder(
-            itemCount: activities.length,
-            itemBuilder: (context, index) {
-              var activity = activities[index];
-              return ListTile(
-                title: Text(activity['activity_place'], style: TextStyle(color: Colors.black),),
-                subtitle: Text(activity['activity_description'], style: TextStyle(color: Colors.black),),
-              );
-            },
-          ),
+        body: CreateButton(buttonName: 'Hello', onPressed: (){
+          print(accumulatedData['flightData']);
+          print(accumulatedData['dept_city']);
+          print(accumulatedData['arrival_city']);
+        }
         ),
       ),
     );

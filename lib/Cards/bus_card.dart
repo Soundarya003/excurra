@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:excurra/constants.dart';
 
-class BusCard extends StatelessWidget {
+class BusCard extends StatefulWidget {
   late String fromDest1;
   late String toDest1;
   late String deptTime1;
@@ -17,6 +17,8 @@ class BusCard extends StatelessWidget {
   late int busCode2;
   late String busName2;
   late String duration2;
+  final bool selected;
+  final Function(bool) onSelect;
 
   BusCard({
      required this.fromDest1,
@@ -33,170 +35,185 @@ class BusCard extends StatelessWidget {
     required this.busCode2,
     required this.busName2,
     required this.duration2,
-    required this.cost
+    required this.cost,
+    required this.selected,
+    required this.onSelect,
   });
 
   @override
+  State<BusCard> createState() => _BusCardState();
+}
+
+class _BusCardState extends State<BusCard> {
+  @override
   Widget build(BuildContext context) {
+    bool selected = false;
     return Card(
       elevation: 3.0,
       shadowColor: Colors.grey,
-      color: Colors.white,
+      color: widget.selected ? Colors.lightBlueAccent : Colors.white,
       margin: EdgeInsets.all(5.0),
-      child: Padding(
-        padding: EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(bottom: 20.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+      child: InkWell(
+        onTap: () {
+          setState(() {
+            widget.onSelect(!widget.selected);
+          });
+        },
+        child: Padding(
+          padding: EdgeInsets.all(20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 20.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        const Padding(
+                            padding: EdgeInsets.only(right: 7.0),
+                            child: Icon(
+                              Icons.directions_bus,
+                              color: Colors.blue,
+                            )),
+                        Text(
+                          '${widget.busName1} - ${widget.busCode1}',
+                          style: kHeading1,
+                        ),
+                      ],
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment:
+                    MainAxisAlignment.spaceBetween,
                     children: [
-                      const Padding(
-                          padding: EdgeInsets.only(right: 7.0),
-                          child: Icon(
-                            Icons.directions_bus,
-                            color: Colors.blue,
-                          )),
-                      Text(
-                        '${busName1} - ${busCode1}',
-                        style: kHeading1,
+                      Column(
+                        children: [
+                          Text(
+                            widget.deptTime1,
+                            style: kHeading1,
+                          ),
+                          Text(
+                            widget.fromDest1,
+                            style: kHeading2,
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            widget.duration1,
+                            style: TextStyle(fontSize: 12,),
+                          ),
+                          Padding(
+                            padding:  EdgeInsets.only(
+                                top: 5.0, bottom: 5.0),
+                            child: SizedBox(
+                              width: 100,
+                              height: 2,
+                              child: Container(
+                                decoration: const BoxDecoration(
+                                    gradient: purpleGradient),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            widget.arrivalTime1,
+                            style: kHeading1,
+                          ),
+                          Text(
+                            widget.toDest1,
+                            style: kHeading2,
+                          )
+                        ],
                       ),
                     ],
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment:
-                  MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
+                  )
+                ],
+              ),
+              SizedBox(height: 40.0,
+                child: Divider(thickness: 0.5,color: Colors.grey,),),
+              Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 20.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Text(
-                          deptTime1,
-                          style: kHeading1,
-                        ),
-                        Text(
-                          fromDest1,
-                          style: kHeading2,
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Text(
-                          duration1,
-                          style: TextStyle(fontSize: 12,),
-                        ),
                         Padding(
-                          padding:  EdgeInsets.only(
-                              top: 5.0, bottom: 5.0),
-                          child: SizedBox(
-                            width: 100,
-                            height: 2,
-                            child: Container(
-                              decoration: const BoxDecoration(
-                                  gradient: purpleGradient),
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                    Column(
-                      children: [
+                            padding: EdgeInsets.only(right: 7.0),
+                            child: Icon(
+                              Icons.directions_bus,
+                              color: Colors.black,
+                            )),
                         Text(
-                          arrivalTime1,
+                          '${widget.busName2} - ${widget.busCode2}',
                           style: kHeading1,
                         ),
-                        Text(
-                          toDest1,
-                          style: kHeading2,
-                        )
                       ],
                     ),
-                  ],
-                )
-              ],
-            ),
-            SizedBox(height: 40.0,
-              child: Divider(thickness: 0.5,color: Colors.grey,),),
-            Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(bottom: 20.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                  ),
+                  Row(
+                    mainAxisAlignment:
+                    MainAxisAlignment.spaceBetween,
                     children: [
-                      Padding(
-                          padding: EdgeInsets.only(right: 7.0),
-                          child: Icon(
-                            Icons.directions_bus,
-                            color: Colors.black,
-                          )),
-                      Text(
-                        '${busName2} - ${busCode2}',
-                        style: kHeading1,
+                      Column(
+                        children: [
+                          Text(
+                            widget.deptTime2,
+                            style: kHeading1,
+                          ),
+                          Text(
+                            widget.fromDest2,
+                            style: kHeading2,
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            widget.duration2,
+                            style: TextStyle(fontSize: 12,),
+                          ),
+                          Padding(
+                            padding:  EdgeInsets.only(
+                                top: 5.0, bottom: 5.0),
+                            child: SizedBox(
+                              width: 100,
+                              height: 2,
+                              child: Container(
+                                decoration: const BoxDecoration(
+                                    gradient: purpleGradient),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            widget.arrivalTime2,
+                            style: kHeading1,
+                          ),
+                          Text(
+                            widget.toDest2,
+                            style: kHeading2,
+                          )
+                        ],
                       ),
                     ],
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment:
-                  MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      children: [
-                        Text(
-                          deptTime2,
-                          style: kHeading1,
-                        ),
-                        Text(
-                          fromDest2,
-                          style: kHeading2,
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Text(
-                          duration2,
-                          style: TextStyle(fontSize: 12,),
-                        ),
-                        Padding(
-                          padding:  EdgeInsets.only(
-                              top: 5.0, bottom: 5.0),
-                          child: SizedBox(
-                            width: 100,
-                            height: 2,
-                            child: Container(
-                              decoration: const BoxDecoration(
-                                  gradient: purpleGradient),
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Text(
-                          arrivalTime2,
-                          style: kHeading1,
-                        ),
-                        Text(
-                          toDest2,
-                          style: kHeading2,
-                        )
-                      ],
-                    ),
-                  ],
-                )
-              ],
-            ),
-            SizedBox(height: 30.0,),
-            Text('Total: ₹${cost}', style: kHeading1,)
-          ],
+                  )
+                ],
+              ),
+              SizedBox(height: 30.0,),
+              Text('Total: ₹${widget.cost}', style: kHeading1,)
+            ],
+          ),
         ),
       ),
     );;

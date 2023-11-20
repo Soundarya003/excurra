@@ -51,7 +51,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
   DateTime now = DateTime.now();
   DateTime last = DateTime.now().add(Duration(days: 1));
-  HashMap<String, String> accumulatedData = new HashMap();
+  HashMap<String, dynamic> accumulatedData = new HashMap();
 
   late String from_date = '${now.year}-${now.month.toString().padLeft(2, '0')}-${now.day}';
   late String to_date = '${last.year}-${last.month.toString().padLeft(2, '0')}-${last.day}';

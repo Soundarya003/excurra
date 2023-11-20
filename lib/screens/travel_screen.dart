@@ -17,11 +17,9 @@ class FlightScreen extends StatefulWidget {
 
 class _FlightScreenState extends State<FlightScreen> with TickerProviderStateMixin{
 
-  
-
   @override
   Widget build(BuildContext context) {
-    final Map<String, String> accumulatedData = ModalRoute.of(context)?.settings.arguments as Map<String, String>;
+    final Map<String, dynamic> accumulatedData = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
     return DefaultTabController(
       length: 3,
       child: Scaffold(

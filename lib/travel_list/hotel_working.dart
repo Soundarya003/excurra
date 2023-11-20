@@ -7,7 +7,7 @@ import 'package:excurra/Widgets/create_button.dart';
 import 'package:excurra/screens/preference.dart';
 
 class HotelWorking extends StatefulWidget {
-  late Map<String, String> accumulatedData;
+  late Map<String, dynamic> accumulatedData;
   HotelWorking({required this.accumulatedData});
   @override
   State<HotelWorking> createState() => _HotelWorkingState();
@@ -15,8 +15,9 @@ class HotelWorking extends StatefulWidget {
 
 class _HotelWorkingState extends State<HotelWorking> {
   @override
-  late Map<String, String> accumulatedData;
+  late Map<String, dynamic> accumulatedData;
   var jsonData;
+  int selectedCardIndex = -1;
   Future<void> loadJsonAsset() async {
     var apiData = await MainAPI().getHotels( accumulatedData['arrival_city']!, accumulatedData['from_date']!, accumulatedData['to_date']!, accumulatedData['numberOfAdults']!, accumulatedData['numberofChildren']!);
     setState(() {
@@ -36,6 +37,15 @@ class _HotelWorkingState extends State<HotelWorking> {
     if (jsonData == null) {
       return Center(child: CircularProgressIndicator());
     }
+    void handleCardSelection(int index) {
+      setState(() {
+        if (selectedCardIndex == index) {
+          selectedCardIndex = -1; // Deselect the card if it's already selected
+        } else {
+          selectedCardIndex = index; // Select the new card
+        }
+      });
+    }
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -52,7 +62,11 @@ class _HotelWorkingState extends State<HotelWorking> {
                         meals: hotelData['meals'],
                         rating: hotelData['rating'],
                         totalAmount: hotelData['totalAmount'],
-                        imageNumber: index+1
+                        imageNumber: index+1,
+                        selected: selectedCardIndex == index,
+                        onSelect: (bool selected) {
+                          handleCardSelection(index);
+                        },
                     );
                   }
               )
@@ -61,6 +75,13 @@ class _HotelWorkingState extends State<HotelWorking> {
             child: CreateButton(
                 buttonName: 'Next',
                 onPressed: () {
+                  if (selectedCardIndex != -1) {
+                    print("Selected card index: $selectedCardIndex");
+                    print(jsonData[selectedCardIndex]);
+                    accumulatedData.addAll({
+                      'hotelData': jsonData[selectedCardIndex]
+                    });
+                  }
                   Navigator.pushNamed(context, ChoiceScreen.id,
                       arguments:  accumulatedData);
                 }),

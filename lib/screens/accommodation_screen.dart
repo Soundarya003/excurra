@@ -18,7 +18,7 @@ class AccomodationScreen extends StatefulWidget {
 class _AccomodationScreenState extends State<AccomodationScreen> with TickerProviderStateMixin{
   @override
   Widget build(BuildContext context) {
-    final Map<String, String> accumulatedData = ModalRoute.of(context)?.settings.arguments as Map<String, String>;
+    final Map<String, dynamic> accumulatedData = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
     return DefaultTabController(
       length: 3,
       child: Scaffold(

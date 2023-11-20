@@ -9,7 +9,7 @@ import 'package:excurra/services/MainAPI.dart';
 class TrainWorking extends StatefulWidget {
   @override
   State<TrainWorking> createState() => _TrainWorkingState();
-  late Map<String, String> accumulatedData;
+  late Map<String, dynamic> accumulatedData;
   TrainWorking({required this.accumulatedData});
 }
 
@@ -17,7 +17,8 @@ class _TrainWorkingState extends State<TrainWorking> with AutomaticKeepAliveClie
   @override
   var jsonData;
   var newData;
-  late Map<String, String> accumulatedData;
+  int selectedCardIndex = -1;
+  late Map<String, dynamic> accumulatedData;
   Future<void> loadJsonAsset() async {
     var apiData = await MainAPI().getTrain(accumulatedData['dept_city']!, accumulatedData['arrival_city']!, accumulatedData['from_date']!, accumulatedData['to_date']!, accumulatedData['numberOfAdults']!, accumulatedData['numberofChildren']!, 'Sleeper');
     setState(() {
@@ -37,6 +38,15 @@ class _TrainWorkingState extends State<TrainWorking> with AutomaticKeepAliveClie
     final accumulatedData = widget.accumulatedData;
     if (newData == null) {
       return Center(child: CircularProgressIndicator());
+    }
+    void handleCardSelection(int index) {
+      setState(() {
+        if (selectedCardIndex == index) {
+          selectedCardIndex = -1; // Deselect the card if it's already selected
+        } else {
+          selectedCardIndex = index; // Select the new card
+        }
+      });
     }
     return Center(
         child: Column(
@@ -62,7 +72,9 @@ class _TrainWorkingState extends State<TrainWorking> with AutomaticKeepAliveClie
                         fromDest1: accumulatedData['dept_city']!,
                         toDest1: accumulatedData['arrival_city']!,
                         fromDest2: accumulatedData['arrival_city']!,
-                        toDest2:  accumulatedData['dept_city']!);
+                        toDest2:  accumulatedData['dept_city']!,
+                        selected: selectedCardIndex == index,
+                        onSelect: (bool ) { handleCardSelection(index); },);
                   }
               ),
             ),
@@ -70,10 +82,15 @@ class _TrainWorkingState extends State<TrainWorking> with AutomaticKeepAliveClie
               child: CreateButton(
                   buttonName: 'Next',
                   onPressed: () {
+                    if (selectedCardIndex != -1) {
+                      print("Selected card index: $selectedCardIndex");
+                      print(newData[selectedCardIndex]);
+                      accumulatedData.addAll({
+                        'trainData': newData[selectedCardIndex]
+                      });
+                    }
                     Navigator.pushNamed(context, AccomodationScreen.id,
                         arguments:  accumulatedData);
-                    // Navigator.pushNamed(context, AccomodationScreen.id,
-                    //     arguments:  accumulatedData);
                   }),
               alignment: Alignment.center,
             ),],
