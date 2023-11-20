@@ -24,8 +24,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
   // Initial Selected Value
   List cityData = [];
-  String selectedCity1 = '';
-  String selectedCity2 = '';
+  String selectedCity1 = 'New Delhi';
+  String selectedCity2 = 'Mumbai';
 
   void swapSelectedCities() {
     setState(() {
@@ -225,7 +225,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                           await showDatePicker(
                                               context: context,
                                               initialDate: DateTime.now(),
-                                              firstDate: DateTime(DateTime.now().year),
+                                              firstDate: DateTime.now(),
                                               lastDate: DateTime(DateTime.now().add(Duration(days: 365)).year));
                                       setState(() {
                                         if (datepicked != null) {
@@ -326,6 +326,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                     );
                                     Navigator.pushNamed(
                                         context, FlightScreen.id, arguments: accumulatedData);
+
                                   }),
                             ],
                           ),

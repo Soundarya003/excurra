@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
 
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 6),
+      duration: Duration(seconds: 1),
     );
 
     _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(_controller);
@@ -36,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
     _controller.repeat();
     _controller.forward();
 
-    Future.delayed(Duration(seconds: 8), () async {
+    Future.delayed(Duration(seconds: 3), () async {
       if (await isGoogleSignIn()) {
         // User is signed in with Google
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => WelcomeScreen()));

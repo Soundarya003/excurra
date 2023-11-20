@@ -16,21 +16,18 @@ class _ChoiceScreenState extends State<ChoiceScreen> with TickerProviderStateMix
 
   List<String> interestList = []; // List to store entered
   List<String> mustList = [];
-  List travelPreference = ['Solo', 'Couple','Friends','Family'];
+  List travelPreference = ['Tourist', 'Couple','Friends','Family'];
   List budgetPreference = ['Normal','Economy','Luxury'];
-  List foodPreference = ['Vegetarian', 'Non-Vegetarian'];
   TextEditingController interestController = TextEditingController();
   TextEditingController mustController = TextEditingController();
   late TabController travel_controller;
   late TabController budget_controller;
-  late TabController foodType_controller;
   int x=0, y=0, z=0;
   void initState() {
     // TODO: implement initState
     super.initState();
     travel_controller = TabController(length: 4, vsync: this);
     budget_controller = TabController(length: 3, vsync: this);
-    foodType_controller = TabController(length: 2, vsync: this);
 
     travel_controller.addListener(() {
       setState(() {
@@ -45,12 +42,6 @@ class _ChoiceScreenState extends State<ChoiceScreen> with TickerProviderStateMix
       print("Selected Index: " + budget_controller.index.toString());
     });
 
-    foodType_controller.addListener(() {
-      setState(() {
-        z = foodType_controller.index;
-      });
-      print("Selected Index: " + foodType_controller.index.toString());
-    });
   }
 
   @override
@@ -195,44 +186,6 @@ class _ChoiceScreenState extends State<ChoiceScreen> with TickerProviderStateMix
                       ),
                     ),
                     SizedBox(height: 20.0,),
-                    Text('Food type', style: kPreferenceTextStyle,),
-                    SizedBox(height: 20.0,),
-                    DefaultTabController(
-                      length: 2,
-                      child: Container(
-                        padding: EdgeInsets.all(5.0),
-                        decoration: BoxDecoration(
-                            color: Color(0xbfff5f5f7),
-                            borderRadius: BorderRadius.circular(25.0)),
-                        child: TabBar(
-                          controller: foodType_controller,
-                          unselectedLabelColor: Colors.black,
-                          isScrollable: true,
-                          labelColor: Color(0xbff7578de),
-                          labelStyle: kBookingTravelText,
-                          indicatorSize: TabBarIndicatorSize.tab,
-                          indicatorPadding: EdgeInsets.all(5.0),
-                          indicator: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                              color: Colors.white),
-                          tabs: [
-                            Tab(
-                              child: Align(
-                                alignment: Alignment.center,
-                                child: Text("Vegetarian"),
-                              ),
-                            ),
-                            Tab(
-                              child: Align(
-                                alignment: Alignment.center,
-                                child: Text('Non- Vegetarian'),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 20.0,),
                     Text('Interests', style: kPreferenceTextStyle,),
                     SizedBox(height: 20.0,),
                  Center(
@@ -275,7 +228,7 @@ class _ChoiceScreenState extends State<ChoiceScreen> with TickerProviderStateMix
                                  width: 2.0, // Set border width
                                ),
                              ),
-                             hintText: 'Enter Text',
+                             hintText: 'Enter interests for eg. adventure, nature, etc.',
                              hintStyle: TextStyle(
                                color: Colors.black,
                              ),
@@ -296,7 +249,7 @@ class _ChoiceScreenState extends State<ChoiceScreen> with TickerProviderStateMix
                        ),
                        const SizedBox(height: 10),
                        Container(
-                         width: 330.0,
+                         width:  MediaQuery.of(context).size.width,
                          height: 70,
                          decoration: BoxDecoration(
                            borderRadius: BorderRadius.circular(20.0),
@@ -370,7 +323,7 @@ class _ChoiceScreenState extends State<ChoiceScreen> with TickerProviderStateMix
                                     width: 2.0, // Set border width
                                   ),
                                 ),
-                                hintText: 'Enter Text',
+                                hintText: 'Enter interests for eg. Taj Mahal, Charminar, etc',
                                 hintStyle: TextStyle(
                                   color: Colors.black,
                                 ),
@@ -391,7 +344,7 @@ class _ChoiceScreenState extends State<ChoiceScreen> with TickerProviderStateMix
                           ),
                           const SizedBox(height: 10),
                           Container(
-                            width: 330.0,
+                            width:  MediaQuery.of(context).size.width,
                             height: 70,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20.0),
@@ -428,7 +381,6 @@ class _ChoiceScreenState extends State<ChoiceScreen> with TickerProviderStateMix
                         finalData.addAll({
                           'travelPreference': travelPreference[x],
                           'budgetPreference': budgetPreference[y],
-                          'foodPreference': foodPreference[z],
                           'interestList': interestList,
                           'mustList': mustList
                         });

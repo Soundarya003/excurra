@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:excurra/Widgets/create_button.dart';
 import 'package:excurra/screens/accommodation_screen.dart';
 import 'package:excurra/services/MainAPI.dart';
@@ -8,7 +7,6 @@ import 'package:excurra/Cards/bus_card.dart';
 import 'package:flutter/services.dart';
 
 class BusWorking extends StatefulWidget {
-
   @override
   State<BusWorking> createState() => _BusWorkingState();
   late Map<String, String> accumulatedData;
