@@ -1,6 +1,8 @@
 import 'package:excurra/Widgets/create_button.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:excurra/screens/welcome.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class WishlistScreen extends StatefulWidget {
   const WishlistScreen({Key? key}) : super(key: key);
@@ -11,6 +13,7 @@ class WishlistScreen extends StatefulWidget {
 }
 
 class _WishlistScreenState extends State<WishlistScreen> {
+  final user = FirebaseAuth.instance.currentUser;
   final List<Map<String, String>> mainList = [
     {
       'activity_place': 'Park',
@@ -24,6 +27,23 @@ class _WishlistScreenState extends State<WishlistScreen> {
     },
     // Add more items as needed
   ];
+
+
+  Future<void> fetchData() async {
+    try {
+      FirebaseFirestore firestore = FirebaseFirestore.instance;
+      CollectionReference collectionRef = FirebaseFirestore.instance.collection('Usersss').
+      doc('${user?.uid}').collection('wishlist');
+      QuerySnapshot querySnapshot = await collectionRef.get();
+
+      for (QueryDocumentSnapshot doc in querySnapshot.docs) {
+        print(doc.get('itinerary'));
+      }
+    } catch (e) {
+      print('Error fetching data: $e');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     // final List<dynamic> mainList = ModalRoute.of(context)?.settings.arguments as List<dynamic>;
@@ -45,7 +65,9 @@ class _WishlistScreenState extends State<WishlistScreen> {
                 },
               ),
               CreateButton(buttonName: 'Home', onPressed: (){
-                Navigator.pushNamed(context, WelcomeScreen.id);
+                fetchData();
+                // Navigator.pushNamed(context, WelcomeScreen.id);
+
               }),
               CreateButton(
                   buttonName: 'Hello',

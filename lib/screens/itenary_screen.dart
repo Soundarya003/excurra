@@ -164,7 +164,7 @@ class _ItineraryScreenState extends State<ItineraryScreen> {
               ),
               SizedBox(height: 20.0),
               Text(
-                "Hold On, We're weaving your perfect trip!",
+                "Hold on, we're weaving your perfect trip!",
                 style: TextStyle(
                   color: purpleGradient.colors.last,
                   fontSize: 16.0,
@@ -209,7 +209,7 @@ class _ItineraryScreenState extends State<ItineraryScreen> {
                       child: Padding(
                         padding: EdgeInsets.all(5.0),
                         child: ListTile(
-                          title: Text(mainList[index]['activity_place'], style: TextStyle(color: Colors.black)),
+                          title: Text(mainList[index]['activity_place'], style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600)),
                           subtitle: Text(mainList[index]['activity_description'], style: TextStyle(color: Colors.black)),
                           trailing: Text(mainList[index]['activity_category'], style: TextStyle(color: Colors.black)),
                         ),
