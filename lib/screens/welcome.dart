@@ -10,6 +10,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:excurra/Widgets/sidemenu.dart';
 import 'package:excurra/Widgets/traveller_widget.dart';
 import 'package:flutter/services.dart';
+import 'package:excurra/screens/itenary_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const String id = 'welcome_screen';

@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:excurra/services/networking.dart';
 
-const mainURL = 'https://930d-117-213-200-2.ngrok-free.app/excurra';
+const mainURL = 'https://24d7-117-213-200-2.ngrok-free.app/excurra';
 
 class MainAPI {
    Future<dynamic> getTrain(String deptCity, String arrivalCity, String deptDate,

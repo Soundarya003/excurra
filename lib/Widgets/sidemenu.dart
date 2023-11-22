@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:excurra/constants.dart';
 import 'package:excurra/Authentication/google_sign_in.dart';
+import 'package:excurra/screens/wishlist_screen.dart';
+import 'package:excurra/screens/travelHistory_screen.dart';
 
 class SideMenu extends StatelessWidget {
   late String name, email, user;
@@ -32,7 +34,7 @@ class SideMenu extends StatelessWidget {
             ],
           ),
           onTap: () {
-            // Handle item 2 click
+             Navigator.pushNamed(context, WishlistScreen.id);
           },
         ),
         ListTile(
@@ -44,7 +46,7 @@ class SideMenu extends StatelessWidget {
             ],
           ),
           onTap: () {
-            // Handle item 1 click
+            Navigator.pushNamed(context, TravelHistoryScreen.id);
           },
         ),
         ListTile(
