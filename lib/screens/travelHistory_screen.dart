@@ -31,6 +31,9 @@ class _TravelHistoryScreenState extends State<TravelHistoryScreen> {
                     Navigator.pop(context);
                   },
                 ),
+                CreateButton(buttonName: 'Home', onPressed: (){
+                  Navigator.pushNamed(context, WelcomeScreen.id);
+                }),
                 CreateButton(
                     buttonName: 'Hello',
                     onPressed: (){

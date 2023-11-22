@@ -1,11 +1,14 @@
 import 'dart:convert';
 import 'dart:math';
 import 'package:excurra/Widgets/create_button.dart';
+import 'package:excurra/screens/travelHistory_screen.dart';
 import 'package:excurra/services/MainAPI.dart';
 import 'package:flutter/material.dart';
 import 'package:excurra/constants.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:excurra/screens/wishlist_screen.dart';
+import 'package:provider/provider.dart';
+import 'package:excurra/screens/welcome.dart';
 
 class ItineraryScreen extends StatefulWidget {
   static const String id = 'itinerary_screen';
@@ -222,7 +225,12 @@ class _ItineraryScreenState extends State<ItineraryScreen> {
                   print(mainList);
                   Navigator.pushNamed(context, WishlistScreen.id, arguments: mainList);
                 }),
-                CreateButton(buttonName: 'Travel History', onPressed: (){})
+                CreateButton(buttonName: 'Travel History', onPressed: (){
+                  Navigator.pushNamed(context, TravelHistoryScreen.id, arguments: mainList);
+                }),
+                CreateButton(buttonName: 'Home', onPressed: (){
+                  Navigator.pushNamed(context, WelcomeScreen.id);
+                })
               ],
             ),
           ],

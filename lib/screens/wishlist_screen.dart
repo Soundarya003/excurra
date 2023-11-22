@@ -44,6 +44,9 @@ class _WishlistScreenState extends State<WishlistScreen> {
                   Navigator.pop(context);
                 },
               ),
+              CreateButton(buttonName: 'Home', onPressed: (){
+                Navigator.pushNamed(context, WelcomeScreen.id);
+              }),
               CreateButton(
                   buttonName: 'Hello',
                   onPressed: (){
