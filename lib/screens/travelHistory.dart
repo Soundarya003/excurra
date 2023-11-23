@@ -1,21 +1,18 @@
-import 'dart:convert';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:excurra/Widgets/create_button.dart';
+import 'package:excurra/screens/welcome.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:excurra/screens/welcome.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class WishlistScreen extends StatefulWidget {
-  const WishlistScreen({Key? key}) : super(key: key);
+class TravelHistory extends StatefulWidget {
+  const TravelHistory({Key? key}) : super(key: key);
   static const String id = 'wishlist_screen';
 
   @override
-  State<WishlistScreen> createState() => _WishlistScreenState();
+  State<TravelHistory> createState() => _TravelHistoryState();
 }
 
-class _WishlistScreenState extends State<WishlistScreen> {
-  @override
+class _TravelHistoryState extends State<TravelHistory> {
   void initState() {
 // TODO: implement initState
     fetchData();
@@ -49,13 +46,13 @@ class _WishlistScreenState extends State<WishlistScreen> {
       CollectionReference collectionRef = FirebaseFirestore.instance
           .collection('Usersss')
           .doc('${user?.uid}')
-          .collection('wishlist');
+          .collection('travel_history');
       QuerySnapshot querySnapshot = await collectionRef.get();
 
       for (QueryDocumentSnapshot doc in querySnapshot.docs) {
-           interests.add(doc.get('interests'));
-           places.add(doc.get('place'));
-           mustList.add(doc.get('itinerary'));
+        interests.add(doc.get('interests'));
+        places.add(doc.get('place'));
+        mustList.add(doc.get('itinerary'));
       }
     } catch (e) {
       print('Error fetching data: $e');
@@ -91,10 +88,10 @@ class _WishlistScreenState extends State<WishlistScreen> {
                 ),
                 Expanded(
                     child: ListView.builder(
-                      itemCount: places.length,
+                        itemCount: places.length,
                         itemBuilder: (context, index){
-                         String place = places[index];
-                         String interest = interests[index];
+                          String place = places[index];
+                          String interest = interests[index];
                           return ListTile(
                             onTap: (){
                               Navigator.push(

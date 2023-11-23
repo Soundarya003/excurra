@@ -79,7 +79,7 @@ class _HostelWorkingState extends State<HostelWorking> {
                     print("Selected card index: $selectedCardIndex");
                     print(jsonData[selectedCardIndex]);
                     accumulatedData.addAll({
-                      'hostelData': jsonData[selectedCardIndex]
+                      'hostel-+Data': jsonData[selectedCardIndex]
                     });
                   }
                   Navigator.pushNamed(context, ChoiceScreen.id,

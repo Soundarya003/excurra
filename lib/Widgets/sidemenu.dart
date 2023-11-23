@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:excurra/constants.dart';
 import 'package:excurra/Authentication/google_sign_in.dart';
 import 'package:excurra/screens/wishlist_screen.dart';
-import 'package:excurra/screens/travelHistory_screen.dart';
+import 'package:excurra/screens/travelHistory.dart';
 
 class SideMenu extends StatelessWidget {
   late String name, email, user;
@@ -40,13 +40,13 @@ class SideMenu extends StatelessWidget {
         ListTile(
           title: Row(
             children: [
-              GradientIcon(icon: Icons.history, size: 30),
+              GradientIcon(icon: Icons.favorite_outlined, size: 30),
               SizedBox(width: 13.0,),
               Text('Travel History', style: kSideHeading,)
             ],
           ),
           onTap: () {
-            Navigator.pushNamed(context, TravelHistoryScreen.id);
+            Navigator.pushNamed(context, WishlistScreen.id);
           },
         ),
         ListTile(

@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:math';
 import 'package:excurra/Widgets/create_button.dart';
-import 'package:excurra/screens/travelHistory_screen.dart';
 import 'package:excurra/services/MainAPI.dart';
 import 'package:flutter/material.dart';
 import 'package:excurra/constants.dart';
@@ -18,6 +17,7 @@ class ItineraryScreen extends StatefulWidget {
 }
 
 class _ItineraryScreenState extends State<ItineraryScreen> {
+
   late Map<String, dynamic> accumulatedData;
   late List<String> allOptions;
   List<List<String>> list1 = [];
@@ -226,7 +226,7 @@ class _ItineraryScreenState extends State<ItineraryScreen> {
                   Navigator.pushNamed(context, WishlistScreen.id, arguments: mainList);
                 }),
                 CreateButton(buttonName: 'Travel History', onPressed: (){
-                  Navigator.pushNamed(context, TravelHistoryScreen.id, arguments: mainList);
+                  // Navigator.pushNamed(context, TravelFast.id, arguments: mainList);
                 }),
                 CreateButton(buttonName: 'Home', onPressed: (){
                   Navigator.pushNamed(context, WelcomeScreen.id);
@@ -237,6 +237,7 @@ class _ItineraryScreenState extends State<ItineraryScreen> {
         ),
       ),
     );
+
 
   }
 }
