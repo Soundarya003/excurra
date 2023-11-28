@@ -44,4 +44,14 @@ class GoogleSignInProvider extends ChangeNotifier{
     return user != null && user.providerData.any((userInfo) => userInfo.providerId == 'google.com');
   }
 
+  String? getUserIdIfSignedIn() {
+    User? user = FirebaseAuth.instance.currentUser;
+
+    if (user != null) {
+      return user.uid; // Return the user ID
+    } else {
+      return null; // Return null if user is not signed in
+    }}
+
+
 }

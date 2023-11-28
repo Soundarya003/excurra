@@ -46,7 +46,7 @@ class SideMenu extends StatelessWidget {
             ],
           ),
           onTap: () {
-            Navigator.pushNamed(context, WishlistScreen.id);
+            Navigator.pushNamed(context, TravelHistory.id);
           },
         ),
         ListTile(
